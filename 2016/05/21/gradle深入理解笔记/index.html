@@ -4,17 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>kutec.cn-分享技术，分享成长</title>
+  <title>gradle深入理解笔记 | kutec.cn-分享技术，分享成长</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="kutec.cn-愿意改变，什么时候开始都不晚！">
-<meta property="og:type" content="website">
-<meta property="og:title" content="kutec.cn-分享技术，分享成长">
-<meta property="og:url" content="http://wangrenxing.github.io/index.html">
+  <meta name="description" content="gradle深入理解笔记Gradle 工程配置说明：
+每个 Project 都须设置一个 build.gradle 文件。 multi-projects build，需在根目录下放一个 build.gradle 和 settings.gradle。 
+一个 Project 是由若干 tasks 来组成的，可通过gradle xxx 来执行具体任务
+具体工作和不同的插件有关系。插件定义很多相关工作的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gradle深入理解笔记">
+<meta property="og:url" content="http://wangrenxing.github.io/2016/05/21/gradle深入理解笔记/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
-<meta property="og:description" content="kutec.cn-愿意改变，什么时候开始都不晚！">
+<meta property="og:description" content="gradle深入理解笔记Gradle 工程配置说明：
+每个 Project 都须设置一个 build.gradle 文件。 multi-projects build，需在根目录下放一个 build.gradle 和 settings.gradle。 
+一个 Project 是由若干 tasks 来组成的，可通过gradle xxx 来执行具体任务
+具体工作和不同的插件有关系。插件定义很多相关工作的">
+<meta property="og:updated_time" content="2016-05-21T09:15:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="kutec.cn-分享技术，分享成长">
-<meta name="twitter:description" content="kutec.cn-愿意改变，什么时候开始都不晚！">
+<meta name="twitter:title" content="gradle深入理解笔记">
+<meta name="twitter:description" content="gradle深入理解笔记Gradle 工程配置说明：
+每个 Project 都须设置一个 build.gradle 文件。 multi-projects build，需在根目录下放一个 build.gradle 和 settings.gradle。 
+一个 Project 是由若干 tasks 来组成的，可通过gradle xxx 来执行具体任务
+具体工作和不同的插件有关系。插件定义很多相关工作的">
   
     <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
   
@@ -198,9 +208,7 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-  
-    <article id="post-gradle深入理解笔记" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-gradle深入理解笔记" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
       <a href="/2016/05/21/gradle深入理解笔记/" class="article-date">
@@ -216,12 +224,23 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/21/gradle深入理解笔记/">gradle深入理解笔记</a>
+    <h1 class="article-title" itemprop="name">
+      gradle深入理解笔记
     </h1>
   
 
       </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -527,165 +546,68 @@ android {
       
     </div>
     
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/05/21/apk编译打包流程笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">apk编译打包流程笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
 
-
-
-
-
-
-
-
-  
-    <article id="post-apk编译打包流程笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/21/apk编译打包流程笔记/" class="article-date">
-  	<time datetime="2016-05-21T02:58:26.000Z" itemprop="datePublished">2016-05-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/21/apk编译打包流程笔记/">apk编译打包流程笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>老大说要帮客户弄个解析apk包名的方法，无奈aapt命令在客户环境下无法使用，利用周末时间研究了下，顺带做个笔记。</p>
-<h4 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h4><p>APK（Android Package）是zip压缩的文件，可通过zip对其进行解压，里面包含assets、一或多个classes.dex文件（odex过的apk除外）、AndroidManifest.xml、resources.arsc以及其他一些文件。找到AndroidManifest.xml，直接打开发现乱码，因此解决乱码即能获取到我们想要的包名。</p>
-<p>AndroidManifest.xml为什么会乱码呢？原来在apk编译打包的过程中将其转为自己特有的二进制格式，apk构建流程图中的aapt工具干的好事，因此我们只要针对此格式进行解析，就能还原到文本格式的xml文件或直接找到指定位置取出包名。</p>
-<p>谷歌官方apk构建流程图<br>    <img src="assets/apk_build_p.png" alt="apk文件构建流程图"></p>
-<p>AndroidManifest.xml的二进制格式<br><img src="assets/AndroidManifest二进制格式.png" alt="AndroidManifest二进制格式"></p>
-<p>由AndroidManifest的二进制格式图可知，按顺序依次放置魔幻数字、文件大小、字符串池子、资源池子、xml内容，根据对应的偏移找到xml内容，找到package属性和其值在字符串中的索引，根据索引从字符串池子中获得字符串。</p>
-<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><ol>
-<li><a href="http://blog.zhaiyifan.cn/2016/02/13/android-reverse-2/" target="_blank" rel="external">Android逆向分析(2) APK的打包与安装</a></li>
-<li><a href="http://blog.csdn.net/jiangwei0910410003/article/details/50568487" target="_blank" rel="external">Android逆向之旅—解析编译之后的AndroidManifest文件格式</a></li>
-<li><a href="https://github.com/rednaga/axmlprinter" target="_blank" rel="external">axmlprinter</a></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
 
 
 
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/08/hello-world/" class="article-date">
-  	<time datetime="2016-05-08T05:25:28.000Z" itemprop="datePublished">2016-05-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="gradle深入理解笔记" data-title="gradle深入理解笔记" data-url="http://wangrenxing.github.io/2016/05/21/gradle深入理解笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wangrenxing"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
 
 
 
-
-
-
-
-
-  
-  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -709,8 +631,8 @@ android {
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
