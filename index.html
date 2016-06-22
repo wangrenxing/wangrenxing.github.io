@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
+						<a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 10px;">ida</a> <a href="/tags/ios/" style="font-size: 20px;">ios</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,69 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-一步步搭建ida-pro动态调试SO环境" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/22/一步步搭建ida-pro动态调试SO环境/" class="article-date">
+  	<time datetime="2016-06-22T09:56:06.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/22/一步步搭建ida-pro动态调试SO环境/">一步步搭建ida pro动态调试SO环境(转载)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ol>
+<li>背景：无任何android开发经验，2天时间搭建调试环境并调试成功。</li>
+<li>目的：调试某android平板中的某个app的so文件，并逆向出关键算法。</li>
+<li>工具：ida pro6.5 +adb+刷机精灵</li>
+</ol>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>第一步准备工具：android平板，数据线，弄过来platform-tools，里面包含用到的adb工具，ida6.5pro, ida6.7pro.<br>第二步从平板中取出app的so文件：由于调试时它用到许多系统lib,我直接把/system和/data全部pull到本地上，很多文件，后面会用到。<br>第三步:push ida6.7中的android_server文件到 平板的/data/local/tmp目录中，然后改执行权限，始终不成功，说权限不允许之类的，折腾了很久，上网查了才知道，先要root，网上下载了360root工具，不成功，又下载刷机精灵，成功了。然后可以改权限了。<br>第四步：执行android_server,老是说segment fault,用root权限也不行，怀疑android_server有问题，是不是ida是6.7的问题，然后换ida6.5的android_server推到平板中去，尽然成功了，原来版本太高的原因吗？<br>第四步：把要调试的so库拖到ida6.5中分析，这里要android_server要与ida版本配套一起才行，不能混搭，比如ida6.5的android_server只能与ida6.5一起用才行，不能与ida6.7一起用，否则会有错误，说是服务版本不匹配之类的。<br>第五步：另开一个cmd, 输入adb forward tcp:23946 tcp:23946<br>第五步：设置调试选项路径,这里一定要是平板中的真实路径，不过一开始路径不对，可以随便设，附加后，ida会提示错误提示，按提示的路径回过头去改正，另外一些系统库,如libc.so,linker说找不到，那之前pull出来的/system/lib下面文件就有用了，把路径map到这个目录下就行了。<br>第六步：设置好调试选项后，F9选择arm android的那个调试器就行了，再选附加进程，发现只有一个进程。为什么呢，为什么呢，上网查了下，原来运行android_server时一定要先su一下，即在root权限下运行才能看到平板中的进程。<br>第七步：root下运行android_server后，把上面的步骤再来一次，ida6.5附加时可以看到一堆进程，找到要调试的so所在的进程后，附加就断在libc.so的一个地方，后面的就是真正调试的就不用说了。  </p>
+<p><a href="http://bbs.pediy.com/showthread.php?t=203080" target="_blank" rel="external">原文地址看雪论坛@PEdiy.com</a> </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ida/">ida</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/so/">so</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-cocoapods依赖管理" class="article article-type-post" itemscope itemprop="blogPost">
   
