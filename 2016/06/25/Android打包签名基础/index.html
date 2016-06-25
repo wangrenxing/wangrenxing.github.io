@@ -20,7 +20,7 @@ android源码包中签名工具位置：/build/tools/signapk/SignApk.Java
 APK签名后仅多增一个包含三个签名信息文件的META-INF文件夹：MANIFEST.MF、CERT.SF、CERT.RSA
 
 MANIFEST.MF 遍历unsigned.apk包中所有文件(entry)，对非文件夹非签名文件的文件，逐个生成SHA1的数字签名信息，再用Ba">
-<meta property="og:updated_time" content="2016-06-25T06:27:54.000Z">
+<meta property="og:updated_time" content="2016-06-25T07:32:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android打包签名基础">
 <meta name="twitter:description" content="一、apk签名机制
@@ -267,7 +267,7 @@ MANIFEST.MF 遍历unsigned.apk包中所有文件(entry)，对非文件夹非签�
 </li>
 </ol>
 <pre><code>3. CERT.RSA
-    CERT.RSA文件中保存了公钥、所采用的加密算法等信息。最后512字节保存了以私钥加密的CERT.SF的信息，仅能用提供的公钥解密。
+    CERT.RSA文件中保存了公钥、所采用的加密算法等信息。最后256字节保存了以私钥加密的CERT.SF的信息，仅能用提供的公钥解密。
 </code></pre><ol>
 <li>意义<ol>
 <li>Android签名机制是对APK包完整性和发布机构唯一性的一种校验机制。</li>
@@ -283,6 +283,10 @@ MANIFEST.MF 遍历unsigned.apk包中所有文件(entry)，对非文件夹非签�
 <h3 id="三、签名工具-jarsigner"><a href="#三、签名工具-jarsigner" class="headerlink" title="三、签名工具 jarsigner"></a>三、签名工具 jarsigner</h3><p>用法: jarsigner [选项] jar-file 别名<br>       jarsigner -verify [选项] jar-file [别名…]</p>
 <p>[-keystore <url>]           密钥库位置<br>[-storepass &lt;口令&gt;]         用于密钥库完整性的口令<br>[-storetype &lt;类型&gt;]         密钥库类型<br>[-keypass &lt;口令&gt;]           私有密钥的口令 (如果不同)<br>[-certchain &lt;文件&gt;]         替代证书链文件的名称<br>[-sigfile &lt;文件&gt;]           .SF/.DSA 文件的名称<br>[-signedjar &lt;文件&gt;]         已签名的 JAR 文件的名称<br>[-digestalg &lt;算法&gt;]        摘要算法的名称<br>[-sigalg &lt;算法&gt;]           签名算法的名称<br>[-verify]                   验证已签名的 JAR 文件<br>[-verbose[:suboptions]]     签名/验证时输出详细信息。<br>                         子选项可以是 all, grouped 或 summary<br>[-certs]                    输出详细信息和验证时显示证书<br>[-tsa <url>]                时间戳颁发机构的位置<br>[-tsacert &lt;别名&gt;]           时间戳颁发机构的公共密钥证书<br>[-tsapolicyid <oid>]        时间戳颁发机构的 TSAPolicyID<br>[-altsigner &lt;类&gt;]           替代的签名机制的类名<br>[-altsignerpath &lt;路径列表&gt;] 替代的签名机制的位置<br>[-internalsf]               在签名块内包含 .SF 文件<br>[-sectionsonly]             不计算整个清单的散列<br>[-protected]                密钥库具有受保护验证路径<br>[-providerName &lt;名称&gt;]      提供方名称<br>[-providerClass &lt;类&gt;        加密服务提供方的名称<br>[-providerArg &lt;参数&gt;]]… 主类文件和构造器参数<br>[-strict]                   将警告视为错误</oid></url></url></p>
 <p>jarsigner -sigalg MD5withRSA -digestalg SHA1 -keystore android.keystore -storepass password -signedjar signed.apk unsign.apk -keypass alias_password alias_name</p>
+<h3 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h3><ol>
+<li><a href="http://blog.csdn.net/jiangwei0910410003/article/details/50402000" target="_blank" rel="external">Android签名机制之—签名过程详解</a></li>
+<li><a href=""></a></li>
+</ol>
 
       
     </div>
