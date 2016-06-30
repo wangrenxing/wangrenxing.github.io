@@ -4,18 +4,24 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>ida问题纪录 | kutec.cn-分享技术，分享成长</title>
+  <title>mac编译android源码 | kutec.cn-分享技术，分享成长</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ida调试so步骤一、下载ida pro6.8，安装android模拟器（需具备root权限)二、将ida里面的dbgsrv文件夹下的android_server，push到模拟器:adb push android_server /data/local/tmp/三、adb shell; su; chmod 755 /data/local/tmp/android_server四、adb shell">
+  <meta name="description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
+# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
+# vim ~/.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ida问题纪录">
-<meta property="og:url" content="http://wangrenxing.github.io/2016/06/22/ida问题纪录/index.html">
+<meta property="og:title" content="mac编译android源码">
+<meta property="og:url" content="http://wangrenxing.github.io/2016/06/30/mac编译android源码/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
-<meta property="og:description" content="ida调试so步骤一、下载ida pro6.8，安装android模拟器（需具备root权限)二、将ida里面的dbgsrv文件夹下的android_server，push到模拟器:adb push android_server /data/local/tmp/三、adb shell; su; chmod 755 /data/local/tmp/android_server四、adb shell">
-<meta property="og:updated_time" content="2016-06-24T12:01:43.000Z">
+<meta property="og:description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
+# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
+# vim ~/.">
+<meta property="og:updated_time" content="2016-06-30T13:02:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ida问题纪录">
-<meta name="twitter:description" content="ida调试so步骤一、下载ida pro6.8，安装android模拟器（需具备root权限)二、将ida里面的dbgsrv文件夹下的android_server，push到模拟器:adb push android_server /data/local/tmp/三、adb shell; su; chmod 755 /data/local/tmp/android_server四、adb shell">
+<meta name="twitter:title" content="mac编译android源码">
+<meta name="twitter:description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
+# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
+# vim ~/.">
   
     <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
   
@@ -199,11 +205,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-ida问题纪录" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-mac编译android源码" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/22/ida问题纪录/" class="article-date">
-  	<time datetime="2016-06-22T13:24:56.000Z" itemprop="datePublished">2016-06-22</time>
+      <a href="/2016/06/30/mac编译android源码/" class="article-date">
+  	<time datetime="2016-06-30T12:05:39.000Z" itemprop="datePublished">2016-06-30</time>
 </a>
     </div>
   
@@ -216,7 +222,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ida问题纪录
+      mac编译android源码
     </h1>
   
 
@@ -225,7 +231,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ida/">ida</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/root/">root</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framwork/">framwork</a></li></ul>
 	</div>
 
         
@@ -236,10 +242,40 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="ida调试so步骤"><a href="#ida调试so步骤" class="headerlink" title="ida调试so步骤"></a>ida调试so步骤</h3><h4 id="一、下载ida-pro6-8，安装android模拟器（需具备root权限"><a href="#一、下载ida-pro6-8，安装android模拟器（需具备root权限" class="headerlink" title="一、下载ida pro6.8，安装android模拟器（需具备root权限)"></a>一、下载ida pro6.8，安装android模拟器（需具备root权限)</h4><h4 id="二、将ida里面的dbgsrv文件夹下的android-server，push到模拟器-adb-push-android-server-data-local-tmp"><a href="#二、将ida里面的dbgsrv文件夹下的android-server，push到模拟器-adb-push-android-server-data-local-tmp" class="headerlink" title="二、将ida里面的dbgsrv文件夹下的android_server，push到模拟器:adb push android_server /data/local/tmp/"></a>二、将ida里面的dbgsrv文件夹下的android_server，push到模拟器:adb push android_server /data/local/tmp/</h4><h4 id="三、adb-shell-su-chmod-755-data-local-tmp-android-server"><a href="#三、adb-shell-su-chmod-755-data-local-tmp-android-server" class="headerlink" title="三、adb shell; su; chmod 755 /data/local/tmp/android_server"></a>三、adb shell; su; chmod 755 /data/local/tmp/android_server</h4><h4 id="四、adb-shell-data-local-tmp-android-server，监听23946端口（netstat查看），与IDA-pro通信"><a href="#四、adb-shell-data-local-tmp-android-server，监听23946端口（netstat查看），与IDA-pro通信" class="headerlink" title="四、adb shell /data/local/tmp/android_server，监听23946端口（netstat查看），与IDA pro通信"></a>四、adb shell /data/local/tmp/android_server，监听23946端口（netstat查看），与IDA pro通信</h4><h4 id="五、adb-forward-tcp-23946-tcp-23946，本地端口转发"><a href="#五、adb-forward-tcp-23946-tcp-23946，本地端口转发" class="headerlink" title="五、adb forward tcp:23946 tcp:23946，本地端口转发"></a>五、adb forward tcp:23946 tcp:23946，本地端口转发</h4><h4 id="六、adb-install-test-apk"><a href="#六、adb-install-test-apk" class="headerlink" title="六、adb install test.apk"></a>六、adb install test.apk</h4><h4 id="七、adb-shell-am-start-D-n-com-tecent-mm-MainActivity（调试模式启动）"><a href="#七、adb-shell-am-start-D-n-com-tecent-mm-MainActivity（调试模式启动）" class="headerlink" title="七、adb shell am start -D -n com.tecent.mm/.MainActivity（调试模式启动）"></a>七、adb shell am start -D -n com.tecent.mm/.MainActivity（调试模式启动）</h4><h4 id="八、附加进程，设立断点"><a href="#八、附加进程，设立断点" class="headerlink" title="八、附加进程，设立断点"></a>八、附加进程，设立断点</h4><h3 id="问题纪录"><a href="#问题纪录" class="headerlink" title="问题纪录"></a>问题纪录</h3><ol>
-<li>android emulator启动，su之后在／目录下执行mkdir test出现Read-only file system，需要重新以读写来挂载／目录：mount -o rw,remount /，但是x86镜像有异常，故用arm镜像，解决只读所需命令：mount -o rw,remount /system  </li>
-<li>错误： only position independent executables (PIE) are supported.<br> 解释：PIE这个安全机制从4.1引入，但是Android L之前的系统版本并不会去检验可执行文件是否基于PIE编译出的。因此不会报错。但是Android L已经开启验证，如果调用的可执行文件不是基于PIE方式编译的，则无法运行。<br> 解决办法：<br>LOCAL_CFLAGS += -pie -fPIE<br>LOCAL_LDFLAGS += -pie -fPIE</li>
-<li>ida6.5及以下的android_server在android5.0及以上运行会出现pie问题。建议用高版本的。</li>
+        <h3 id="1-创建大小写敏感的磁盘镜像"><a href="#1-创建大小写敏感的磁盘镜像" class="headerlink" title="1. 创建大小写敏感的磁盘镜像"></a>1. 创建大小写敏感的磁盘镜像</h3><pre><code># hdiutil create -type SPARSE -fs &apos;Case-sensitive Journaled HFS+&apos; -size 40g ~/android.dmg
+# hdiutil resize -size &lt;new-size-you-want&gt;g ~/android.dmg.sparseimage
+# vim ~/.bash_profile
+# 添加挂在磁盘与卸载磁盘的便捷函数
+    #mount the android file image
+    function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
+    #unmount the android file image
+    function umountAndroid() { hdiutil detach /Volumes/android; }
+# source ~/.bash_profile
+# mountAndroid
+# cd /Volumes/android/
+</code></pre><h3 id="2-下载aosp-清华镜像"><a href="#2-下载aosp-清华镜像" class="headerlink" title="2. 下载aosp,清华镜像"></a>2. 下载aosp,<a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="external">清华镜像</a></h3><h3 id="3-编译"><a href="#3-编译" class="headerlink" title="3. 编译"></a>3. 编译</h3><pre><code># source build/envsetup.sh  
+# make idegen &amp;&amp; development/tools/idegen/idegen.sh  
+# macSdk版本参考附录2，下载对应xcode
+# make idegen &amp;&amp; development/tools/idegen/idegen.sh 
+# 根目录下生成ide导入文件
+</code></pre><ol>
+<li><p>mac下多jdk版本，通过别称切换</p>
+<pre><code># vim ~/.bash_profile
+export JAVA_6_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0.jdk/Contents/Home
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
+export JAVA_HOME=$JAVA_7_HOME
+
+alias jdk8=&apos;export JAVA_HOME=$JAVA_8_HOME&apos;
+alias jdk7=&apos;export JAVA_HOME=$JAVA_7_HOME&apos;
+alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
+</code></pre></li>
+</ol>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><ol>
+<li><a href="http://source.android.com/source/initializing.html" target="_blank" rel="external">官方文档</a></li>
+<li><a href="http://blog.csdn.net/goyoung/article/details/48682163" target="_blank" rel="external">android5.1.1编译</a></li>
+<li><a href="http://www.cnblogs.com/kissazi2/p/5244442.html" target="_blank" rel="external">中文文档</a></li>
+<li><a href="http://www.tuicool.com/articles/uUJjEb" target="_blank" rel="external">mac多jdk版本</a></li>
 </ol>
 
       
@@ -250,18 +286,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/06/24/Dex分包学习/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Dex分包学习
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/06/22/一步步搭建ida-pro动态调试SO环境/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">一步步搭建ida pro动态调试SO环境(转载)</div>
+    <a href="/2016/06/29/mac常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">mac常用命令</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -296,7 +323,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="ida问题纪录" data-title="ida问题纪录" data-url="http://wangrenxing.github.io/2016/06/22/ida问题纪录/"></div>
+	<div class="ds-thread" data-thread-key="mac编译android源码" data-title="mac编译android源码" data-url="http://wangrenxing.github.io/2016/06/30/mac编译android源码/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
