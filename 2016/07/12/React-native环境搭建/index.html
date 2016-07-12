@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wangrenxing.github.io/2016/07/12/React-native环境搭建/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
 <meta property="og:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
-<meta property="og:updated_time" content="2016-07-12T15:55:50.000Z">
+<meta property="og:updated_time" content="2016-07-12T16:00:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React native环境搭建">
 <meta name="twitter:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
@@ -238,7 +238,7 @@
       
         <h3 id="0、推荐直接看官方安装文档，参考1"><a href="#0、推荐直接看官方安装文档，参考1" class="headerlink" title="0、推荐直接看官方安装文档，参考1"></a>0、推荐直接看官方安装文档，参考1</h3><h3 id="一、安装ruby（mac自带略，检查-ruby-–version"><a href="#一、安装ruby（mac自带略，检查-ruby-–version" class="headerlink" title="一、安装ruby（mac自带略，检查 ruby –version)"></a>一、安装ruby（mac自带略，检查 ruby –version)</h3><h3 id="二、安装brew（安装文档"><a href="#二、安装brew（安装文档" class="headerlink" title="二、安装brew（安装文档)"></a>二、安装brew（<a href="https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Installation.md" target="_blank" rel="external">安装文档</a>)</h3><p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="external">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”<br>或<br>ruby -e “$(curl -fsSL <a href="https://raw.github.com/Homebrew/homebrew/go/install" target="_blank" rel="external">https://raw.github.com/Homebrew/homebrew/go/install</a>)</p>
 <h3 id="三、安装nvm（-安装文档-https-github-com-creationix-nvm）"><a href="#三、安装nvm（-安装文档-https-github-com-creationix-nvm）" class="headerlink" title="三、安装nvm（[安装文档](https://github.com/creationix/nvm）"></a>三、安装nvm（[安装文档](<a href="https://github.com/creationix/nvm）" target="_blank" rel="external">https://github.com/creationix/nvm）</a></h3><p>curl -o- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh" target="_blank" rel="external">https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh</a> | bash  </p>
-<p>vim ~/.bash_profile # 添加下列两行<br>export NVM_DIR=”/Users/wangrenxing/.nvm”<br>[ -s “$NVM_DIR/nvm.sh” ] &amp;&amp; . “$NVM_DIR/nvm.sh” # loads nvm<br>source ~/.bash_profile<br>nvm install node<br>npm install -g npm@2 # node 5.0推荐用npm2，版本号可随意升降<br>npm install -g react-native-cli ＃ 安装react－native<br>react-native init AwesomeProject<br>cd AwesomeProject<br>react-native run-ios</p>
+<p>vim ~/.bash_profile # 添加下列两行<br>export NVM_DIR=”/Users/wangrenxing/.nvm”<br>[ -s “$NVM_DIR/nvm.sh” ] &amp;&amp; . “$NVM_DIR/nvm.sh” # loads nvm<br>source ~/.bash_profile<br>nvm install node<br>npm install -g npm@2 # node 5.0推荐用npm2，版本号可随意升降<br>npm install -g react-native-cli ＃ 安装react－native<br>react-native init AwesomeProject<br>cd AwesomeProject<br>react-native run-ios<br>react-native run-android</p>
 <h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><ol>
 <li>fatal: could not create leading directories of ‘/usr/local/Library/Taps/homebrew/homebrew-core’: Permission denied<br> 解决方法：<br> cd /usr/local<br> sudo chown -R wangrenxing:staff *<br> brew doctor</li>
 <li></li>
