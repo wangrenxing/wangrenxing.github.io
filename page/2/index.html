@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,73 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-apk编译打包流程笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/21/apk编译打包流程笔记/" class="article-date">
+  	<time datetime="2016-05-21T02:58:26.000Z" itemprop="datePublished">2016-05-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/21/apk编译打包流程笔记/">apk编译打包流程笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>老大说要帮客户弄个解析apk包名的方法，无奈aapt命令在客户环境下无法使用，利用周末时间研究了下，顺带做个笔记。</p>
+<h4 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h4><p>APK（Android Package）是zip压缩的文件，可通过zip对其进行解压，里面包含assets、一或多个classes.dex文件（odex过的apk除外）、AndroidManifest.xml、resources.arsc以及其他一些文件。找到AndroidManifest.xml，直接打开发现乱码，因此解决乱码即能获取到我们想要的包名。</p>
+<p>AndroidManifest.xml为什么会乱码呢？原来在apk编译打包的过程中将其转为自己特有的二进制格式，apk构建流程图中的aapt工具干的好事，因此我们只要针对此格式进行解析，就能还原到文本格式的xml文件或直接找到指定位置取出包名。</p>
+<p>谷歌官方apk构建流程图<br>    <img src="assets/apk_build_p.png" alt="apk文件构建流程图"></p>
+<p>AndroidManifest.xml的二进制格式<br><img src="assets/AndroidManifest二进制格式.png" alt="AndroidManifest二进制格式"></p>
+<p>由AndroidManifest的二进制格式图可知，按顺序依次放置魔幻数字、文件大小、字符串池子、资源池子、xml内容，根据对应的偏移找到xml内容，找到package属性和其值在字符串中的索引，根据索引从字符串池子中获得字符串。</p>
+<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><ol>
+<li><a href="http://blog.zhaiyifan.cn/2016/02/13/android-reverse-2/" target="_blank" rel="external">Android逆向分析(2) APK的打包与安装</a></li>
+<li><a href="http://blog.csdn.net/jiangwei0910410003/article/details/50568487" target="_blank" rel="external">Android逆向之旅—解析编译之后的AndroidManifest文件格式</a></li>
+<li><a href="https://github.com/rednaga/axmlprinter" target="_blank" rel="external">axmlprinter</a></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   

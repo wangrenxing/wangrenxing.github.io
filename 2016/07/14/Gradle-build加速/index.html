@@ -4,18 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>Dex分包学习 | kutec.cn-分享技术，分享成长</title>
+  <title>Gradle build加速 | kutec.cn-分享技术，分享成长</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要点纪录1. 相关联的类不在同一个dex文件里面，会报错。解释 ：如果引用类被打上CLASS_ISPREVERIFIED标志，则会进行dex的校验（引用类与被引用类是否为同一个dex）。当安装apk时，dex文件会被虚拟机（dexopt）优化为odex文件，当启动虚拟机时如果打开verify选项，且dvmVerifyClass校验类成功，则此类会被打上CLASS_ISPREVERIFIED标志。验">
+  <meta name="description" content="开启offline work: /Users/wangrenxing/.gradle/
+use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
+设置gradle.properties，添加如下
+ org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m org.gradle.pa">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Dex分包学习">
-<meta property="og:url" content="http://wangrenxing.github.io/2016/06/24/Dex分包学习/index.html">
+<meta property="og:title" content="Gradle build加速">
+<meta property="og:url" content="http://wangrenxing.github.io/2016/07/14/Gradle-build加速/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
-<meta property="og:description" content="要点纪录1. 相关联的类不在同一个dex文件里面，会报错。解释 ：如果引用类被打上CLASS_ISPREVERIFIED标志，则会进行dex的校验（引用类与被引用类是否为同一个dex）。当安装apk时，dex文件会被虚拟机（dexopt）优化为odex文件，当启动虚拟机时如果打开verify选项，且dvmVerifyClass校验类成功，则此类会被打上CLASS_ISPREVERIFIED标志。验">
-<meta property="og:updated_time" content="2016-06-24T12:34:25.000Z">
+<meta property="og:description" content="开启offline work: /Users/wangrenxing/.gradle/
+use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
+设置gradle.properties，添加如下
+ org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m org.gradle.pa">
+<meta property="og:updated_time" content="2016-07-14T01:55:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Dex分包学习">
-<meta name="twitter:description" content="要点纪录1. 相关联的类不在同一个dex文件里面，会报错。解释 ：如果引用类被打上CLASS_ISPREVERIFIED标志，则会进行dex的校验（引用类与被引用类是否为同一个dex）。当安装apk时，dex文件会被虚拟机（dexopt）优化为odex文件，当启动虚拟机时如果打开verify选项，且dvmVerifyClass校验类成功，则此类会被打上CLASS_ISPREVERIFIED标志。验">
+<meta name="twitter:title" content="Gradle build加速">
+<meta name="twitter:description" content="开启offline work: /Users/wangrenxing/.gradle/
+use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
+设置gradle.properties，添加如下
+ org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m org.gradle.pa">
   
     <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
   
@@ -199,11 +208,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Dex分包学习" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Gradle-build加速" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/24/Dex分包学习/" class="article-date">
-  	<time datetime="2016-06-24T12:00:05.000Z" itemprop="datePublished">2016-06-24</time>
+      <a href="/2016/07/14/Gradle-build加速/" class="article-date">
+  	<time datetime="2016-07-14T01:45:03.000Z" itemprop="datePublished">2016-07-14</time>
 </a>
     </div>
   
@@ -216,7 +225,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Dex分包学习
+      Gradle build加速
     </h1>
   
 
@@ -225,7 +234,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/－-dex-－-android/">－ dex － android</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle-Build/">Gradle Build</a></li></ul>
 	</div>
 
         
@@ -236,16 +245,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="要点纪录"><a href="#要点纪录" class="headerlink" title="要点纪录"></a>要点纪录</h2><h4 id="1-相关联的类不在同一个dex文件里面，会报错。"><a href="#1-相关联的类不在同一个dex文件里面，会报错。" class="headerlink" title="1. 相关联的类不在同一个dex文件里面，会报错。"></a>1. 相关联的类不在同一个dex文件里面，会报错。</h4><p><strong><em>解释</em></strong> ：如果引用类被打上CLASS_ISPREVERIFIED标志，则会进行dex的校验（引用类与被引用类是否为同一个dex）。当安装apk时，dex文件会被虚拟机（dexopt）优化为odex文件，当启动虚拟机时如果打开verify选项，且dvmVerifyClass校验类成功，则此类会被打上CLASS_ISPREVERIFIED标志。<br>验证过程：如果类的以下方法直接引用到的类（不递归搜索）都在同一个dex文件则被打上CLASS_ISPREVERIFIED标记。</p>
-<pre><code>1. static方法
-2. private方法
-3. 构造函数
-4. 虚函数
-</code></pre><p><strong><em>方案</em></strong>: </p>
-<ol>
-<li>所有类的构造方法里都注入一行引用AntilazyLoad类的语句，AntilazyLoad类打包成单独的hack.dex，这样当安装apk的时候，classes.dex内的类都会引用一个在不相同dex中的AntilazyLoad类，这样就防止了类被打上CLASS_ISPREVERIFIED的标志了，只要没被打上这个标志的类都可以进行打补丁操作。</li>
-<li>应用启动的时候加载进来.AntilazyLoad类所在的dex包必须被先加载进来,不然AntilazyLoad类会被标记为不存在，即使后续加载了hack.dex包，那么他也是不存在的。</li>
-<li>Application作为应用的入口不能插入这段代码。（因为载入hack.dex的代码是在Application中onCreate中执行的，如果在Application的构造函数里面插入了这段代码，那么就是在hack.dex加载之前就使用该类，该类一次找不到，会被永远的打上找不到的标志)<br><strong><em><a href="https://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;mid=400118620&amp;idx=1&amp;sn=b4fdd5055731290eef12ad0d17f39d4a&amp;scene=1&amp;srcid=1106Imu9ZgwybID13e7y2nEi#wechat_redirect" target="_blank" rel="external">摘要原文</a></em></strong></li>
+        <ol>
+<li>开启offline work: /Users/wangrenxing/.gradle/</li>
+<li>use local gradle distribution: /Users/wangrenxing/.gradle/wrapper</li>
+<li><p>设置gradle.properties，添加如下</p>
+<p> org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m<br> org.gradle.parallel=true<br> org.gradle.daemon=true</p>
+</li>
 </ol>
 
       
@@ -256,18 +261,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/06/25/Android打包签名基础/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Android打包签名基础
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/06/22/ida问题纪录/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ida问题纪录</div>
+    <a href="/2016/07/12/React-native环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React native环境搭建</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -302,7 +298,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Dex分包学习" data-title="Dex分包学习" data-url="http://wangrenxing.github.io/2016/06/24/Dex分包学习/"></div>
+	<div class="ds-thread" data-thread-key="Gradle-build加速" data-title="Gradle build加速" data-url="http://wangrenxing.github.io/2016/07/14/Gradle-build加速/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
