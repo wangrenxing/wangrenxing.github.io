@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wangrenxing.github.io/2016/07/12/React-native环境搭建/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
 <meta property="og:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
-<meta property="og:updated_time" content="2016-07-17T10:03:46.000Z">
+<meta property="og:updated_time" content="2016-07-17T10:36:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React native环境搭建">
 <meta name="twitter:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
@@ -248,8 +248,12 @@
 <li>返回开发者菜单 reload js</li>
 <li>查看端口 netstat -an – p | grep ‘tcp’ | grep ‘LISTEN’, 采用tcp46的*.8081。react-native start或npm start时会提示监听哪个端口。</li>
 <li><a href="https://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html" target="_blank" rel="external">调试ractjs的插件</a>，开发人员选项里面有个react的tab</li>
+<li><a href="http://facebook.github.io/react-native/releases/0.29/docs/signed-apk-android.html#generating-signed-apk" target="_blank" rel="external">签名打包</a></li>
 </ol>
-<h3 id="四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错"><a href="#四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错" class="headerlink" title="四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错)"></a>四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错)</h3><ol>
+<h3 id="四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk"><a href="#四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk" class="headerlink" title="四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk)"></a>四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk)</h3><pre><code>react-native bundle --platform android --dev false --entry-file index.android.js \
+  --bundle-output android/app/src/main/assets/index.android.bundle \
+  --assets-dest android/app/src/main/res/
+</code></pre><ol>
 <li>新建as工程，添加react-native依赖：compile ‘com.facebook.react:react-native:＋’</li>
 <li><p>添加网络权限并添加设置界面声明</p>
 <pre><code>&lt;activity android:name=&quot;com.facebook.react.devsupport.DevSettingsActivity&quot; /&gt;
