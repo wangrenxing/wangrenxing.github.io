@@ -742,7 +742,54 @@ allprojects {
 }
 </code></pre></li>
 <li>gradle加速，请移步本站对应文章，主要离线＋gradle守护进程＋并行</li>
-<li>RNHello目录编写index.android.js</li>
+<li><p>RNHello目录编写index.android.js</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from &apos;react-native&apos;;
+
+class RNHelloApp extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;
+          Welcome to React Native!
+        &lt;/Text&gt;
+        &lt;Text style={styles.instructions}&gt;
+          To get started, edit index.android.js
+        &lt;/Text&gt;
+        &lt;Text style={styles.instructions}&gt;
+          Shake or press menu button for dev menu
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: &apos;center&apos;,
+    alignItems: &apos;center&apos;,
+    backgroundColor: &apos;#F5FCFF&apos;,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: &apos;center&apos;,
+    margin: 10,
+  },
+  instructions: {
+    textAlign: &apos;center&apos;,
+    color: &apos;#333333&apos;,
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent(&apos;RNHello&apos;, () =&gt; RNHelloApp);
+</code></pre></li>
 <li>编译</li>
 <li>//react-native start 或 npm start</li>
 <li>RNHello目录执行：react-native run-android</li>

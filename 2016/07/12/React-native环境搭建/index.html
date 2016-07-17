@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wangrenxing.github.io/2016/07/12/React-native环境搭建/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
 <meta property="og:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
-<meta property="og:updated_time" content="2016-07-17T09:58:34.000Z">
+<meta property="og:updated_time" content="2016-07-17T10:03:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React native环境搭建">
 <meta name="twitter:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
@@ -316,7 +316,54 @@ allprojects {
 }
 </code></pre></li>
 <li>gradle加速，请移步本站对应文章，主要离线＋gradle守护进程＋并行</li>
-<li>RNHello目录编写index.android.js</li>
+<li><p>RNHello目录编写index.android.js</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from &apos;react-native&apos;;
+
+class RNHelloApp extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;
+          Welcome to React Native!
+        &lt;/Text&gt;
+        &lt;Text style={styles.instructions}&gt;
+          To get started, edit index.android.js
+        &lt;/Text&gt;
+        &lt;Text style={styles.instructions}&gt;
+          Shake or press menu button for dev menu
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: &apos;center&apos;,
+    alignItems: &apos;center&apos;,
+    backgroundColor: &apos;#F5FCFF&apos;,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: &apos;center&apos;,
+    margin: 10,
+  },
+  instructions: {
+    textAlign: &apos;center&apos;,
+    color: &apos;#333333&apos;,
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent(&apos;RNHello&apos;, () =&gt; RNHelloApp);
+</code></pre></li>
 <li>编译</li>
 <li>//react-native start 或 npm start</li>
 <li>RNHello目录执行：react-native run-android</li>
