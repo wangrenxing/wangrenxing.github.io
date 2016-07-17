@@ -4,24 +4,17 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>mac编译android源码 | kutec.cn-分享技术，分享成长</title>
+  <title>Tag: react | kutec.cn-分享技术，分享成长</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
-# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
-# vim ~/.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="mac编译android源码">
-<meta property="og:url" content="http://wangrenxing.github.io/2016/06/30/mac编译android源码/index.html">
+  <meta name="description" content="kutec.cn-愿意改变，什么时候开始都不晚！">
+<meta property="og:type" content="website">
+<meta property="og:title" content="kutec.cn-分享技术，分享成长">
+<meta property="og:url" content="http://wangrenxing.github.io/tags/react/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
-<meta property="og:description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
-# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
-# vim ~/.">
-<meta property="og:updated_time" content="2016-07-01T08:12:23.000Z">
+<meta property="og:description" content="kutec.cn-愿意改变，什么时候开始都不晚！">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac编译android源码">
-<meta name="twitter:description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
-# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
-# vim ~/.">
+<meta name="twitter:title" content="kutec.cn-分享技术，分享成长">
+<meta name="twitter:description" content="kutec.cn-愿意改变，什么时候开始都不晚！">
   
     <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
   
@@ -205,153 +198,84 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-mac编译android源码" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2016/06/30/mac编译android源码/" class="article-date">
-  	<time datetime="2016-06-30T12:05:39.000Z" itemprop="datePublished">2016-06-30</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/07/16/react入门笔记/" class="archive-article-date">
+  	<time datetime="2016-07-16T15:01:02.000Z" itemprop="datePublished">Jul 16</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      mac编译android源码
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/07/16/react入门笔记/">react入门笔记</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framwork/">framwork</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-创建大小写敏感的磁盘镜像"><a href="#1-创建大小写敏感的磁盘镜像" class="headerlink" title="1. 创建大小写敏感的磁盘镜像"></a>1. 创建大小写敏感的磁盘镜像</h3><pre><code># hdiutil create -type SPARSE -fs &apos;Case-sensitive Journaled HFS+&apos; -size 40g ~/android.dmg
-# hdiutil resize -size &lt;new-size-you-want&gt;g ~/android.dmg.sparseimage
-# vim ~/.bash_profile
-# 添加挂在磁盘与卸载磁盘的便捷函数
-    #mount the android file image
-    function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
-    #unmount the android file image
-    function umountAndroid() { hdiutil detach /Volumes/android; }
-# source ~/.bash_profile
-# mountAndroid
-# cd /Volumes/android/
-</code></pre><h3 id="2-下载aosp-清华镜像"><a href="#2-下载aosp-清华镜像" class="headerlink" title="2. 下载aosp,清华镜像"></a>2. 下载aosp,<a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="external">清华镜像</a></h3><h3 id="3-编译"><a href="#3-编译" class="headerlink" title="3. 编译"></a>3. 编译</h3><pre><code># source build/envsetup.sh  
-# make idegen &amp;&amp; development/tools/idegen/idegen.sh  
-# macSdk版本参考附录2，下载对应xcode
-# make idegen &amp;&amp; development/tools/idegen/idegen.sh 
-# 根目录下生成ide导入文件＊.ipr
-</code></pre><ol>
-<li><p>mac下多jdk版本，通过别称切换</p>
-<pre><code># vim ~/.bash_profile
-export JAVA_6_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0.jdk/Contents/Home
-export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
-export JAVA_HOME=$JAVA_7_HOME
-
-alias jdk8=&apos;export JAVA_HOME=$JAVA_8_HOME&apos;
-alias jdk7=&apos;export JAVA_HOME=$JAVA_7_HOME&apos;
-alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
-</code></pre></li>
-</ol>
-<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><ol>
-<li><a href="http://source.android.com/source/initializing.html" target="_blank" rel="external">官方文档</a></li>
-<li><a href="http://blog.csdn.net/goyoung/article/details/48682163" target="_blank" rel="external">android5.1.1编译</a></li>
-<li><a href="http://www.cnblogs.com/kissazi2/p/5244442.html" target="_blank" rel="external">中文文档</a></li>
-<li><a href="http://www.tuicool.com/articles/uUJjEb" target="_blank" rel="external">mac多jdk版本</a></li>
-<li><a href="http://blog.csdn.net/ritterliu/article/details/50857128" target="_blank" rel="external">as查看源码</a></li>
-</ol>
-
-      
-    </div>
-    
+    </header>
   </div>
+</article>
   
     
-<nav id="article-nav">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2016/07/15/react试水/" class="archive-article-date">
+  	<time datetime="2016-07-15T12:29:16.000Z" itemprop="datePublished">Jul 15</time>
+</a>
+        </div>
+    	 
   
-    <a href="/2016/07/12/React-native环境搭建/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          React native环境搭建
-        
-      </div>
-    </a>
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/07/15/react试水/">react试水</a>
+    </h1>
   
-  
-    <a href="/2016/06/29/mac常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mac常用命令</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
 
-  
-</article>
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
 	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
 
+          
 
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
 
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="mac编译android源码" data-title="mac编译android源码" data-url="http://wangrenxing.github.io/2016/06/30/mac编译android源码/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"wangrenxing"};
-	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
-	})();
-	</script>
-	<!-- 多说公共JS代码 end -->
-</div>
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -377,9 +301,9 @@ alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}

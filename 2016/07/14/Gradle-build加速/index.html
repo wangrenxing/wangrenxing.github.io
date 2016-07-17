@@ -7,24 +7,18 @@
   <title>Gradle build加速 | kutec.cn-分享技术，分享成长</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="开启offline work: /Users/wangrenxing/.gradle/
-use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
-设置gradle.properties，添加如下
- org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m org.gradle.pa">
+use local gradle distribution: 如果gradle版本缺失，可手动下载（网址查看wrapper里gradle-wrapper.properties）添加。解压放置到安装目录。 或直接修改或拷贝  cp -r ~/.gradle/wrapper/dists/gradle-2.12-a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Gradle build加速">
 <meta property="og:url" content="http://wangrenxing.github.io/2016/07/14/Gradle-build加速/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
 <meta property="og:description" content="开启offline work: /Users/wangrenxing/.gradle/
-use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
-设置gradle.properties，添加如下
- org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m org.gradle.pa">
-<meta property="og:updated_time" content="2016-07-14T01:55:22.000Z">
+use local gradle distribution: 如果gradle版本缺失，可手动下载（网址查看wrapper里gradle-wrapper.properties）添加。解压放置到安装目录。 或直接修改或拷贝  cp -r ~/.gradle/wrapper/dists/gradle-2.12-a">
+<meta property="og:updated_time" content="2016-07-17T08:13:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gradle build加速">
 <meta name="twitter:description" content="开启offline work: /Users/wangrenxing/.gradle/
-use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
-设置gradle.properties，添加如下
- org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m org.gradle.pa">
+use local gradle distribution: 如果gradle版本缺失，可手动下载（网址查看wrapper里gradle-wrapper.properties）添加。解压放置到安装目录。 或直接修改或拷贝  cp -r ~/.gradle/wrapper/dists/gradle-2.12-a">
   
     <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
   
@@ -130,7 +124,7 @@ use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
 					</div>
 				</section>
 				
@@ -247,9 +241,11 @@ use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
       
         <ol>
 <li>开启offline work: /Users/wangrenxing/.gradle/</li>
-<li>use local gradle distribution: /Users/wangrenxing/.gradle/wrapper</li>
+<li>use local gradle distribution:<br> 如果gradle版本缺失，可手动下载（网址查看wrapper里gradle-wrapper.properties）添加。解压放置到安装目录。<br> 或直接修改或拷贝<br>  cp -r ~/.gradle/wrapper/dists/gradle-2.12-all/8ywkdai6puj5z81fume4e7njw/gradle-2.12 /Applications/Android\ Studio.app/Contents/gradle/</li>
 <li><p>设置gradle.properties，添加如下</p>
 <p> org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m<br> org.gradle.parallel=true<br> org.gradle.daemon=true</p>
+</li>
+<li><p><a href="https://www.figotan.org/2016/04/01/gradle-on-android-best-practise/" target="_blank" rel="external">gradle最佳实践</a></p>
 </li>
 </ol>
 
@@ -260,6 +256,15 @@ use local gradle distribution: /Users/wangrenxing/.gradle/wrapper
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/07/15/react试水/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          react试水
+        
+      </div>
+    </a>
   
   
     <a href="/2016/07/12/React-native环境搭建/" id="article-nav-older" class="article-nav-link-wrap">

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>react入门笔记 | kutec.cn-分享技术，分享成长</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、环境搭建
+webpack：前端资源加载/打包工具 npm install -g webpack
+编译 JSX，先安装对应的 loader: npm install babel-loader –save-dev
+webpack配置文件：webpack.config.js 当前工程目录有一个入口文件 entry.js，React 组件放置在一个 components/ 目录下，组件被 entry.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react入门笔记">
+<meta property="og:url" content="http://wangrenxing.github.io/2016/07/16/react入门笔记/index.html">
+<meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
+<meta property="og:description" content="一、环境搭建
+webpack：前端资源加载/打包工具 npm install -g webpack
+编译 JSX，先安装对应的 loader: npm install babel-loader –save-dev
+webpack配置文件：webpack.config.js 当前工程目录有一个入口文件 entry.js，React 组件放置在一个 components/ 目录下，组件被 entry.">
+<meta property="og:updated_time" content="2016-07-17T00:19:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react入门笔记">
+<meta name="twitter:description" content="一、环境搭建
+webpack：前端资源加载/打包工具 npm install -g webpack
+编译 JSX，先安装对应的 loader: npm install babel-loader –save-dev
+webpack配置文件：webpack.config.js 当前工程目录有一个入口文件 entry.js，React 组件放置在一个 components/ 目录下，组件被 entry.">
+  
+    <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wangrenxing</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿意改变，什么时候开始都不晚！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/随笔/">随笔</a></li>
+				        
+							<li><a href="/bookmarks">书签</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wangrenxing" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="#">虚位以待</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">码农界平凡且爱折腾的一枚童鞋，徘徊在 C/C++/Java 的世界，献身于移动端！</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wangrenxing</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/assets/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wangrenxing</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿意改变，什么时候开始都不晚！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li><a href="/bookmarks">书签</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wangrenxing" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-react入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/16/react入门笔记/" class="article-date">
+  	<time datetime="2016-07-16T15:01:02.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      react入门笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、环境搭建"><a href="#一、环境搭建" class="headerlink" title="一、环境搭建"></a>一、环境搭建</h3><ol>
+<li>webpack：前端资源加载/打包工具<br> npm install -g webpack</li>
+<li>编译 JSX，先安装对应的 loader:<br> npm install babel-loader –save-dev</li>
+<li><p>webpack配置文件：webpack.config.js<br> 当前工程目录有一个入口文件 entry.js，React 组件放置在一个 components/ 目录下，组件被 entry.js 引用，要使用 entry.js，我们把这个文件指定输出到 dist/bundle.js，Webpack 配置如下：</p>
+<pre><code>var path = require(&apos;path&apos;);
+module.exports = {
+    entry: &apos;./entry.js&apos;,
+    output: {
+        path: path.join(__dirname, &apos;/dist&apos;),
+        filename: &apos;bundle.js&apos;
+    },
+    resolve: {
+        //指定可以被 import 的文件后缀 
+        extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;]
+    },
+    module: {
+        loaders: [
+            //指定 babel-loader 编译后缀名为 .js 或者 .jsx 的文件
+            { test: /\.js|jsx$/, loaders: [&apos;babel&apos;] }
+        ]
+    }
+}        
+</code></pre></li>
+<li>监听编译: webpack -d –watch</li>
+</ol>
+<h3 id="二、基础知识"><a href="#二、基础知识" class="headerlink" title="二、基础知识"></a>二、基础知识</h3><h4 id="1-JSX"><a href="#1-JSX" class="headerlink" title="1. JSX"></a>1. JSX</h4><ol>
+<li>jsx（可选）: 把 HTML 模板直接嵌入到 JS 代码里面，使用时通过工具转换为js代码。</li>
+<li>jsx约定：小写的字符串是 HTML 标签，大写开头的变量是 React 组件</li>
+<li>js与html关键字冲突：HTML: class －&gt; JSX: className，HTML: for -&gt; JSX: htmlFor</li>
+<li>jsx使用注释与js的唯一区别：在组件的子元素里需使用｛｝挎起来：{/<em> child comment, put {} around </em>/}</li>
+<li><p>属性扩散 … ，可被覆盖，如下面props.foo</p>
+<pre><code>var props = {};
+props.foo = x;
+props.bar = y;
+var component = &lt;Component {...props} foo=&apos;blala&apos; /&gt;;
+</code></pre></li>
+</ol>
+<h4 id="2-组件："><a href="#2-组件：" class="headerlink" title="2. 组件："></a>2. 组件：</h4><p>react应用构建在组件之上，核心：props、sate。<br>一个组件就是通过这两个属性的值在 render 方法里面生成这个组件对应的 HTML 结构。<br><strong>注意：</strong>组件生成的 HTML 结构只能有一个单一的根节点。</p>
+<ol>
+<li>props: 组件属性，由外部通过jsx属性传入设置，this.props一般不修改。</li>
+<li>state：组件当前状态，ui根据状态作出展示。state值变化，组件自动调用render重新渲染，更改动作由this.setState方法触发。</li>
+<li><p>state判断标准：</p>
+<p> a. 是否是从父级通过 props 传入的？如果是，可能不是 state 。<br> b. 是否会随着时间改变？如果不是，可能不是 state 。<br> c. 能根据组件中其它 state 数据或者 props 计算出来吗？如果是，就不是 state 。<br> d. <a href="http://reactjs.cn/react/docs/thinking-in-react.html" target="_blank" rel="external">深入理解react</a></p>
+</li>
+</ol>
+<h4 id="2-1-组件生命周期"><a href="#2-1-组件生命周期" class="headerlink" title="2.1 组件生命周期"></a>2.1 组件生命周期</h4><ol>
+<li><p>一般来说，一个组件类由 extends Component 创建，并且提供一个 render 方法以及其他可选的生命周期函数、组件相关的事件或方法来定义。</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import { render } from &apos;react-dom&apos;;
+
+class LikeButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
+
+  handleClick(e) {
+    this.setState({ liked: !this.state.liked });
+  }
+
+  render() {
+    const text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+    return (
+      &lt;p onClick={this.handleClick.bind(this)}&gt;
+          You {text} this. Click to toggle.
+      &lt;/p&gt;
+    );
+  }
+}
+
+render(&lt;LikeButton /&gt;, document.body); 
+</code></pre></li>
+<li><p>getInitialState方法，组件加载时调用一次，es6可在构造函数中初始化</p>
+</li>
+<li><p>getDefaultProps方法，只在组件创建时调用一次并缓存返回的对象（即在 React.createClass 之后就会调用）。默认值。es6可直接定义：</p>
+<pre><code>Counter.defaultProps = { initialCount: 0 };
+</code></pre></li>
+<li>render方法，组装html结构，可返回null或false或html结构，仅能单根节点</li>
+<li><p>componentWillMount、componentDidMount、componentWillUnmount  </p>
+<pre><code>componentWillReceiveProps
+shouldComponentUpdate
+componentWillUpdate
+componentDidUpdate
+</code></pre></li>
+</ol>
+<h4 id="2-2-事件处理"><a href="#2-2-事件处理" class="headerlink" title="2.2 事件处理"></a>2.2 事件处理</h4><ol>
+<li><p>注意要显式调用 bind(this) 将事件函数上下文绑定要组件实例上</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import { render } from &apos;react-dom&apos;;
+
+class LikeButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
+
+  handleClick(e) {
+    this.setState({ liked: !this.state.liked });
+  }
+
+  render() {
+    const text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+    return (
+      &lt;p onClick={this.handleClick.bind(this)}&gt;
+          You {text} this. Click to toggle.
+      &lt;/p&gt;
+    );
+  }
+}
+
+render(&lt;LikeButton /&gt;, document.body);
+</code></pre></li>
+<li>“合成事件”和“原生事件”<br> a. “合成事件”会以事件委托（event delegation）的方式绑定到组件最上层，并且在组件卸载（unmount）的时候自动销毁绑定的事件。<br> b. 使用原生事件的时候注意在 componentWillUnmount 解除绑定 removeEventListener。<br> c. ”合成事件“ 的 event 对象只在当前 event loop 有效</li>
+</ol>
+<h4 id="2-3-DOM-操作"><a href="#2-3-DOM-操作" class="headerlink" title="2.3 DOM 操作"></a>2.3 DOM 操作</h4><ol>
+<li><p>ReactDOM.render 返回对组件的引用也就是组件实例（对于无状态状态组件来说返回 null），注意 JSX 返回的不是组件实例，它只是一个 ReactElement 对象。</p>
+<pre><code>// A ReactElement
+const myComponent = &lt;MyComponent /&gt;
+
+// render
+const myComponentInstance = ReactDOM.render(myComponent, mountNode);
+myComponentInstance.doSomething();
+</code></pre></li>
+<li><p>findDOMNode()，不能用于无状态组件上。</p>
+<pre><code>import { findDOMNode } from &apos;react-dom&apos;;
+// Inside Component class
+componentDidMound() {
+  const el = findDOMNode(this);
+}
+</code></pre></li>
+<li><p>Refs，通过在要引用的 DOM 元素上面设置一个 ref 属性指定一个name，然后通过 this.refs.name 来访问对应的 DOM 元素。</p>
+<pre><code>class App extends Component {
+    constructor() {
+        return { userInput: &apos;&apos; };
+    }
+
+    handleChange(e) {
+        this.setState({ userInput: e.target.value });
+    }
+
+    clearAndFocusInput() {
+        this.setState({ userInput: &apos;&apos; }, () =&gt; {
+         this.refs.theInput.focus();
+        });
+    }
+
+    render() {
+        return (
+         &lt;div&gt;
+           &lt;div onClick={this.clearAndFocusInput.bind(this)}&gt;
+             Click to Focus and Reset
+           &lt;/div&gt;
+           &lt;input
+             ref=&quot;theInput&quot;
+             value={this.state.userInput}
+             onChange={this.handleChange.bind(this)}
+           /&gt;
+         &lt;/div&gt;
+        );
+    }
+}
+如果 ref 是设置在原生 HTML 元素上，它拿到的就是 DOM 元素，如果设置在自定义组件上，它拿到的就是组件实例，这时候就需要通过 findDOMNode 来拿到组件的 DOM 元素。
+因为无状态组件没有实例，所以 ref 不能设置在无状态组件上。因为无状态组件没有实例方法，不需要 ref 去拿实例调用相关的方法，但是如果想要拿无状态组件的 DOM 元素的时候，就需要用一个状态组件封装一层，然后通过 ref 和 findDOMNode 去获取。
+</code></pre></li>
+<li>注意<br> a. 可用 ref 到的组件定义的任何公共方法，比如 this.refs.myTypeahead.reset()<br> b. Refs 是访问到组件内部 DOM 节点唯一可靠的方法<br> c. Refs 会自动销毁对子组件的引用（当子组件删除时）<br> d. 不要在 render 或者 render 之前访问 refs<br> e. 不要滥用 refs，比如只是用它来按照传统的方式操作界面 UI：找到 DOM -&gt; 更新 DOM</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/07/15/react试水/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react试水</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="react入门笔记" data-title="react入门笔记" data-url="http://wangrenxing.github.io/2016/07/16/react入门笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wangrenxing"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 wangrenxing
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

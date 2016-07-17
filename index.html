@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
 					</div>
 				</section>
 				
@@ -200,6 +200,377 @@
 
       <div class="body-wrap">
   
+    <article id="post-react入门笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/16/react入门笔记/" class="article-date">
+  	<time datetime="2016-07-16T15:01:02.000Z" itemprop="datePublished">2016-07-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/16/react入门笔记/">react入门笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、环境搭建"><a href="#一、环境搭建" class="headerlink" title="一、环境搭建"></a>一、环境搭建</h3><ol>
+<li>webpack：前端资源加载/打包工具<br> npm install -g webpack</li>
+<li>编译 JSX，先安装对应的 loader:<br> npm install babel-loader –save-dev</li>
+<li><p>webpack配置文件：webpack.config.js<br> 当前工程目录有一个入口文件 entry.js，React 组件放置在一个 components/ 目录下，组件被 entry.js 引用，要使用 entry.js，我们把这个文件指定输出到 dist/bundle.js，Webpack 配置如下：</p>
+<pre><code>var path = require(&apos;path&apos;);
+module.exports = {
+    entry: &apos;./entry.js&apos;,
+    output: {
+        path: path.join(__dirname, &apos;/dist&apos;),
+        filename: &apos;bundle.js&apos;
+    },
+    resolve: {
+        //指定可以被 import 的文件后缀 
+        extensions: [&apos;&apos;, &apos;.js&apos;, &apos;.jsx&apos;]
+    },
+    module: {
+        loaders: [
+            //指定 babel-loader 编译后缀名为 .js 或者 .jsx 的文件
+            { test: /\.js|jsx$/, loaders: [&apos;babel&apos;] }
+        ]
+    }
+}        
+</code></pre></li>
+<li>监听编译: webpack -d –watch</li>
+</ol>
+<h3 id="二、基础知识"><a href="#二、基础知识" class="headerlink" title="二、基础知识"></a>二、基础知识</h3><h4 id="1-JSX"><a href="#1-JSX" class="headerlink" title="1. JSX"></a>1. JSX</h4><ol>
+<li>jsx（可选）: 把 HTML 模板直接嵌入到 JS 代码里面，使用时通过工具转换为js代码。</li>
+<li>jsx约定：小写的字符串是 HTML 标签，大写开头的变量是 React 组件</li>
+<li>js与html关键字冲突：HTML: class －&gt; JSX: className，HTML: for -&gt; JSX: htmlFor</li>
+<li>jsx使用注释与js的唯一区别：在组件的子元素里需使用｛｝挎起来：{/<em> child comment, put {} around </em>/}</li>
+<li><p>属性扩散 … ，可被覆盖，如下面props.foo</p>
+<pre><code>var props = {};
+props.foo = x;
+props.bar = y;
+var component = &lt;Component {...props} foo=&apos;blala&apos; /&gt;;
+</code></pre></li>
+</ol>
+<h4 id="2-组件："><a href="#2-组件：" class="headerlink" title="2. 组件："></a>2. 组件：</h4><p>react应用构建在组件之上，核心：props、sate。<br>一个组件就是通过这两个属性的值在 render 方法里面生成这个组件对应的 HTML 结构。<br><strong>注意：</strong>组件生成的 HTML 结构只能有一个单一的根节点。</p>
+<ol>
+<li>props: 组件属性，由外部通过jsx属性传入设置，this.props一般不修改。</li>
+<li>state：组件当前状态，ui根据状态作出展示。state值变化，组件自动调用render重新渲染，更改动作由this.setState方法触发。</li>
+<li><p>state判断标准：</p>
+<p> a. 是否是从父级通过 props 传入的？如果是，可能不是 state 。<br> b. 是否会随着时间改变？如果不是，可能不是 state 。<br> c. 能根据组件中其它 state 数据或者 props 计算出来吗？如果是，就不是 state 。<br> d. <a href="http://reactjs.cn/react/docs/thinking-in-react.html" target="_blank" rel="external">深入理解react</a></p>
+</li>
+</ol>
+<h4 id="2-1-组件生命周期"><a href="#2-1-组件生命周期" class="headerlink" title="2.1 组件生命周期"></a>2.1 组件生命周期</h4><ol>
+<li><p>一般来说，一个组件类由 extends Component 创建，并且提供一个 render 方法以及其他可选的生命周期函数、组件相关的事件或方法来定义。</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import { render } from &apos;react-dom&apos;;
+
+class LikeButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
+
+  handleClick(e) {
+    this.setState({ liked: !this.state.liked });
+  }
+
+  render() {
+    const text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+    return (
+      &lt;p onClick={this.handleClick.bind(this)}&gt;
+          You {text} this. Click to toggle.
+      &lt;/p&gt;
+    );
+  }
+}
+
+render(&lt;LikeButton /&gt;, document.body); 
+</code></pre></li>
+<li><p>getInitialState方法，组件加载时调用一次，es6可在构造函数中初始化</p>
+</li>
+<li><p>getDefaultProps方法，只在组件创建时调用一次并缓存返回的对象（即在 React.createClass 之后就会调用）。默认值。es6可直接定义：</p>
+<pre><code>Counter.defaultProps = { initialCount: 0 };
+</code></pre></li>
+<li>render方法，组装html结构，可返回null或false或html结构，仅能单根节点</li>
+<li><p>componentWillMount、componentDidMount、componentWillUnmount  </p>
+<pre><code>componentWillReceiveProps
+shouldComponentUpdate
+componentWillUpdate
+componentDidUpdate
+</code></pre></li>
+</ol>
+<h4 id="2-2-事件处理"><a href="#2-2-事件处理" class="headerlink" title="2.2 事件处理"></a>2.2 事件处理</h4><ol>
+<li><p>注意要显式调用 bind(this) 将事件函数上下文绑定要组件实例上</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import { render } from &apos;react-dom&apos;;
+
+class LikeButton extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { liked: false };
+  }
+
+  handleClick(e) {
+    this.setState({ liked: !this.state.liked });
+  }
+
+  render() {
+    const text = this.state.liked ? &apos;like&apos; : &apos;haven\&apos;t liked&apos;;
+    return (
+      &lt;p onClick={this.handleClick.bind(this)}&gt;
+          You {text} this. Click to toggle.
+      &lt;/p&gt;
+    );
+  }
+}
+
+render(&lt;LikeButton /&gt;, document.body);
+</code></pre></li>
+<li>“合成事件”和“原生事件”<br> a. “合成事件”会以事件委托（event delegation）的方式绑定到组件最上层，并且在组件卸载（unmount）的时候自动销毁绑定的事件。<br> b. 使用原生事件的时候注意在 componentWillUnmount 解除绑定 removeEventListener。<br> c. ”合成事件“ 的 event 对象只在当前 event loop 有效</li>
+</ol>
+<h4 id="2-3-DOM-操作"><a href="#2-3-DOM-操作" class="headerlink" title="2.3 DOM 操作"></a>2.3 DOM 操作</h4><ol>
+<li><p>ReactDOM.render 返回对组件的引用也就是组件实例（对于无状态状态组件来说返回 null），注意 JSX 返回的不是组件实例，它只是一个 ReactElement 对象。</p>
+<pre><code>// A ReactElement
+const myComponent = &lt;MyComponent /&gt;
+
+// render
+const myComponentInstance = ReactDOM.render(myComponent, mountNode);
+myComponentInstance.doSomething();
+</code></pre></li>
+<li><p>findDOMNode()，不能用于无状态组件上。</p>
+<pre><code>import { findDOMNode } from &apos;react-dom&apos;;
+// Inside Component class
+componentDidMound() {
+  const el = findDOMNode(this);
+}
+</code></pre></li>
+<li><p>Refs，通过在要引用的 DOM 元素上面设置一个 ref 属性指定一个name，然后通过 this.refs.name 来访问对应的 DOM 元素。</p>
+<pre><code>class App extends Component {
+    constructor() {
+        return { userInput: &apos;&apos; };
+    }
+
+    handleChange(e) {
+        this.setState({ userInput: e.target.value });
+    }
+
+    clearAndFocusInput() {
+        this.setState({ userInput: &apos;&apos; }, () =&gt; {
+         this.refs.theInput.focus();
+        });
+    }
+
+    render() {
+        return (
+         &lt;div&gt;
+           &lt;div onClick={this.clearAndFocusInput.bind(this)}&gt;
+             Click to Focus and Reset
+           &lt;/div&gt;
+           &lt;input
+             ref=&quot;theInput&quot;
+             value={this.state.userInput}
+             onChange={this.handleChange.bind(this)}
+           /&gt;
+         &lt;/div&gt;
+        );
+    }
+}
+如果 ref 是设置在原生 HTML 元素上，它拿到的就是 DOM 元素，如果设置在自定义组件上，它拿到的就是组件实例，这时候就需要通过 findDOMNode 来拿到组件的 DOM 元素。
+因为无状态组件没有实例，所以 ref 不能设置在无状态组件上。因为无状态组件没有实例方法，不需要 ref 去拿实例调用相关的方法，但是如果想要拿无状态组件的 DOM 元素的时候，就需要用一个状态组件封装一层，然后通过 ref 和 findDOMNode 去获取。
+</code></pre></li>
+<li>注意<br> a. 可用 ref 到的组件定义的任何公共方法，比如 this.refs.myTypeahead.reset()<br> b. Refs 是访问到组件内部 DOM 节点唯一可靠的方法<br> c. Refs 会自动销毁对子组件的引用（当子组件删除时）<br> d. 不要在 render 或者 render 之前访问 refs<br> e. 不要滥用 refs，比如只是用它来按照传统的方式操作界面 UI：找到 DOM -&gt; 更新 DOM</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-react试水" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/15/react试水/" class="article-date">
+  	<time datetime="2016-07-15T12:29:16.000Z" itemprop="datePublished">2016-07-15</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/15/react试水/">react试水</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>安装npm</li>
+<li>npm install -g react-heatpack</li>
+<li><p>vim index.js</p>
+<p> import React from ‘react’</p>
+<p> export default React.createClass({<br>   render: function() {</p>
+<pre><code>return &lt;div&gt;Hello React!&lt;/div&gt;
+</code></pre><p>   }<br> })</p>
+</li>
+<li>heatpack index.js</li>
+<li><p>浏览器打开localhost:3000  </p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>import React from &apos;react&apos;
+var Hello = React.createClass({
+        render: function() {
+                return &lt;span&gt; Hello &lt;/span&gt;
+        }
+})
+
+/* version 1*/
+/*
+var World = React.createClass({
+        render: function(){
+                return &lt;span&gt; World! &lt;/span&gt;
+        }
+})
+</code></pre></li>
+</ol>
+<pre><code>export default React.createClass( {
+        render: function() {
+                return &lt;div&gt;&lt;Hello/&gt;&lt;World/&gt;&lt;/div&gt;
+        }
+})
+*/
+
+/* version 0 */
+/*
+export default React.createClass( {
+        render: function() {
+                return &lt;div&gt; Hello React! &lt;/div&gt;
+        }
+})
+*/
+
+/* version 3 */
+/*
+var World = React.createClass({
+        render: function(){
+                return &lt;span&gt;{this.props.who || &apos; react world!&apos;}!&lt;/span&gt;
+        }
+})
+
+var World_1 = React.createClass({
+        render: function(){
+                return &lt;span&gt;{this.props.who ? this.props.who : &apos; react world!&apos;}!&lt;/span&gt;
+        }
+})
+
+var World_2 = React.createClass({
+        getPerson: function(){
+                return this.props.who || &apos; react world!&apos;;
+        },
+        render: function(){
+                return &lt;span&gt;{this.getPerson()}!&lt;/span&gt;
+        }
+})
+
+export default React.createClass({
+        render: function(){
+                return &lt;div&gt;&lt;Hello/&gt;&lt;World_2 who=&quot;wrx&quot;/&gt;&lt;/div&gt;
+        }
+})
+*/
+
+var Good = React.createClass({
+        propTypes: {
+                name: React.PropTypes.string.isRequired,
+                age: React.PropTypes.number, // optional
+                //parent: React.PropTypes.object.isRequired
+        },
+        render: function(){
+                return &lt;span&gt;{this.props.name}! {this.props.age}!&lt;/span&gt;
+        }
+})
+
+export default React.createClass({
+        render: function(){
+                return &lt;div&gt;&lt;Good name=&apos;wrx&apos; age={28}/&gt;&lt;/div&gt;
+        }
+})
+</code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://daveceddia.com/test-drive-react/" target="_blank" rel="external">test-drive-react</a></li>
+<li><a href="http://geek.csdn.net/news/detail/88222" target="_blank" rel="external">http://geek.csdn.net/news/detail/88222</a></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
     <article id="post-Gradle-build加速" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -228,9 +599,11 @@
       
         <ol>
 <li>开启offline work: /Users/wangrenxing/.gradle/</li>
-<li>use local gradle distribution: /Users/wangrenxing/.gradle/wrapper</li>
+<li>use local gradle distribution:<br> 如果gradle版本缺失，可手动下载（网址查看wrapper里gradle-wrapper.properties）添加。解压放置到安装目录。<br> 或直接修改或拷贝<br>  cp -r ~/.gradle/wrapper/dists/gradle-2.12-all/8ywkdai6puj5z81fume4e7njw/gradle-2.12 /Applications/Android\ Studio.app/Contents/gradle/</li>
 <li><p>设置gradle.properties，添加如下</p>
 <p> org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m<br> org.gradle.parallel=true<br> org.gradle.daemon=true</p>
+</li>
+<li><p><a href="https://www.figotan.org/2016/04/01/gradle-on-android-best-practise/" target="_blank" rel="external">gradle最佳实践</a></p>
 </li>
 </ol>
 
@@ -291,10 +664,97 @@
       
         <h3 id="0、推荐直接看官方安装文档，参考1"><a href="#0、推荐直接看官方安装文档，参考1" class="headerlink" title="0、推荐直接看官方安装文档，参考1"></a>0、推荐直接看官方安装文档，参考1</h3><h3 id="一、安装ruby（mac自带略，检查-ruby-–version"><a href="#一、安装ruby（mac自带略，检查-ruby-–version" class="headerlink" title="一、安装ruby（mac自带略，检查 ruby –version)"></a>一、安装ruby（mac自带略，检查 ruby –version)</h3><h3 id="二、安装brew（安装文档"><a href="#二、安装brew（安装文档" class="headerlink" title="二、安装brew（安装文档)"></a>二、安装brew（<a href="https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Installation.md" target="_blank" rel="external">安装文档</a>)</h3><p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="external">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”<br>或<br>ruby -e “$(curl -fsSL <a href="https://raw.github.com/Homebrew/homebrew/go/install" target="_blank" rel="external">https://raw.github.com/Homebrew/homebrew/go/install</a>)</p>
 <h3 id="三、安装nvm（-安装文档-https-github-com-creationix-nvm）"><a href="#三、安装nvm（-安装文档-https-github-com-creationix-nvm）" class="headerlink" title="三、安装nvm（[安装文档](https://github.com/creationix/nvm）"></a>三、安装nvm（[安装文档](<a href="https://github.com/creationix/nvm）" target="_blank" rel="external">https://github.com/creationix/nvm）</a></h3><p>curl -o- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh" target="_blank" rel="external">https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh</a> | bash  </p>
-<p>vim ~/.bash_profile # 添加下列两行<br>export NVM_DIR=”/Users/wangrenxing/.nvm”<br>[ -s “$NVM_DIR/nvm.sh” ] &amp;&amp; . “$NVM_DIR/nvm.sh” # loads nvm<br>source ~/.bash_profile<br>nvm install node<br>npm install -g npm@2 # node 5.0推荐用npm2，版本号可随意升降<br>npm install -g react-native-cli ＃ 安装react－native<br>react-native init AwesomeProject<br>cd AwesomeProject<br>react-native run-ios<br>react-native run-android</p>
+<p>vim ~/.bash_profile # 添加下列两行<br>export NVM_DIR=”/Users/wangrenxing/.nvm”<br>[ -s “$NVM_DIR/nvm.sh” ] &amp;&amp; . “$NVM_DIR/nvm.sh” # loads nvm<br>source ~/.bash_profile<br>nvm install node<br>npm install -g npm@2 # node 5.0推荐用npm2，版本号可随意升降<br>npm install -g react-native-cli ＃ 安装react－native<br>brew install flow<br><a href="atom.io">下载安装atom</a><br>cmd + ,打开面板，选择package，安装插件nuclide 和 atom－beauty</p>
+<p>react-native init AwesomeProject<br>cd AwesomeProject<br>react-native run-ios</p>
+<p>vi ~/.bash_profile<br>export ANDROID_HOME = /…/android/sdk<br>查看build－tools里面的android编译工具版本，调整build.gralde的buildToolsVersion<br>开启adb调试，链接手机<br>react-native run-android<br>5.0＋手机：adb reverse tcp:8081 tcp:8081<br>5.0以下手机（手机与pc同一wifi环境）：</p>
+<ol>
+<li>adb shell input keyevent 82 或 按菜单键</li>
+<li>弹出界面点击 Dev Settings －&gt; Debug Server host &amp; port for Device</li>
+<li>输入pc的ip、port，192.168.1.116:8081</li>
+<li>返回开发者菜单 reload js</li>
+<li>查看端口 netstat -an – p | grep ‘tcp’ | grep ‘LISTEN’, 采用tcp46的*.8081。react-native start或npm start时会提示监听哪个端口。</li>
+<li><a href="https://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html" target="_blank" rel="external">调试ractjs的插件</a>，开发人员选项里面有个react的tab</li>
+</ol>
+<h3 id="四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错"><a href="#四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错" class="headerlink" title="四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错)"></a>四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错)</h3><ol>
+<li>新建as工程，添加react-native依赖：compile ‘com.facebook.react:react-native:＋’</li>
+<li><p>添加网络权限并添加设置界面声明</p>
+<pre><code>&lt;activity android:name=&quot;com.facebook.react.devsupport.DevSettingsActivity&quot; /&gt;
+</code></pre></li>
+<li><p>修改代码</p>
+<pre><code> // MainActivity.java
+ public class MainActivity extends ReactActivity {
+    @Override
+    protected String getMainComponentName() {
+        return &quot;RNHello&quot;;
+    }
+    @Override
+    protected boolean getUseDeveloperSupport() {
+        return BuildConfig.DEBUG;
+    }
+}
+
+// 添加app.java，修改manifest.xml
+public class App extends Application implements ReactApplication{
+
+    private final ReactNativeHost reactNativeHost = new ReactNativeHost(this) {
+        @Override
+        protected boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected List&lt;ReactPackage&gt; getPackages() {
+            return Arrays.&lt;ReactPackage&gt;asList(new MainReactPackage());
+        }
+    };
+
+    @Override
+    public ReactNativeHost getReactNativeHost() {
+        return reactNativeHost;
+    }
+}
+</code></pre></li>
+<li>RNHello目录添加js，执行npm init创建npm管理配置文件package.json，其中name必须统一，这里为RNHello，其它默认即可。</li>
+<li><p>修改配置，vi package.json<br> a. scripts内添加：  </p>
+<pre><code>&quot;start&quot;: &quot;node node_modules/react-native/local-cli/cli.js start&quot;
+</code></pre><p> b. 添加依赖(可参照react-native init Hello创建的package.json)：</p>
+<pre><code>&quot;dependencies&quot; : {
+    &quot;react&quot;: &quot;15.2.1&quot;,
+    &quot;react-native&quot;: &quot;0.29.0&quot;
+  }
+</code></pre></li>
+<li>安装依赖：npm install</li>
+<li><p>flow配置</p>
+<pre><code>curl -o .flowconfig  https://raw.githubusercontent.com/facebook/react-native/master/.flowconfig
+</code></pre></li>
+<li><p>react-native依赖下载位置修改，不然会出现版本不一致，出错：</p>
+<pre><code>// 先下载到本地
+npm install react-native --save
+// 添加本地依赖库, app目录下的build.gradle
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            // 此路径文件在npm安装react依赖后有
+            url &quot;../../node_modules/react-native/android&quot;
+         }
+    }
+}
+</code></pre></li>
+<li>gradle加速，请移步本站对应文章，主要离线＋gradle守护进程＋并行</li>
+<li>RNHello目录编写index.android.js</li>
+<li>编译</li>
+<li>//react-native start 或 npm start</li>
+<li>RNHello目录执行：react-native run-android</li>
+<li>调试方式见上</li>
+</ol>
 <h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><ol>
-<li>fatal: could not create leading directories of ‘/usr/local/Library/Taps/homebrew/homebrew-core’: Permission denied<br> 解决方法：<br> cd /usr/local<br> sudo chown -R wangrenxing:staff *<br> brew doctor</li>
-<li></li>
+<li>fatal: could not create leading directories of ‘/usr/local/Library/Taps/homebrew/homebrew-core’: Permission denied<br> 解决方法：<br> cd /usr/local<br> sudo chown -R <code>whoami</code> /usr/local<br> brew doctor</li>
+<li><p>找不到so，解决方法</p>
+<pre><code>ndk {
+    abiFilters &quot;armeabi-v7a&quot;, &quot;x86&quot;
+}
+</code></pre></li>
 </ol>
 <h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
 <li><a href="http://reactnative.cn/docs/0.28/getting-started.html" target="_blank" rel="external">react native中文官网</a></li>
@@ -752,437 +1212,6 @@ alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ida/">ida</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/so/">so</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-cocoapods依赖管理" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/30/cocoapods依赖管理/" class="article-date">
-  	<time datetime="2016-05-29T16:03:31.000Z" itemprop="datePublished">2016-05-30</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/30/cocoapods依赖管理/">cocoapods依赖管理</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="cocoapods安装"><a href="#cocoapods安装" class="headerlink" title="cocoapods安装"></a>cocoapods安装</h2><ol>
-<li>安装Xcode的XcommandLineTools: xcode-select install</li>
-<li>删除ruby下载源:gem sources -r <a href="http://ruby.taobao.org" target="_blank" rel="external">http://ruby.taobao.org</a> added to sources</li>
-<li>添加淘宝源: gem sources -a gem sources -a <a href="https://ruby.taobao.org" target="_blank" rel="external">https://ruby.taobao.org</a></li>
-<li>安装: sudo gem install cocoapods</li>
-</ol>
-<h2 id="cocoapods使用"><a href="#cocoapods使用" class="headerlink" title="cocoapods使用"></a>cocoapods使用</h2><ol>
-<li>项目根目录新建名为Podfile的配置文件</li>
-<li>配置文件指定下载源，指定平台版本，使用framework进行集成,添加配置如下：<h1 id="open-source"><a href="#open-source" class="headerlink" title="open source"></a>open source</h1>source ‘<a href="https://github.com/CocoaPods/Specs.git" target="_blank" rel="external">https://github.com/CocoaPods/Specs.git</a>‘<h1 id="my-work"><a href="#my-work" class="headerlink" title="my work"></a>my work</h1>#source ‘<a href="https://github.com/Artsy/Specs.git" target="_blank" rel="external">https://github.com/Artsy/Specs.git</a>‘<br>#platform :ios, ‘8.4’<h1 id="oc的库，采用frameworks集成，无需OC-Swift的桥接文件"><a href="#oc的库，采用frameworks集成，无需OC-Swift的桥接文件" class="headerlink" title="oc的库，采用frameworks集成，无需OC-Swift的桥接文件"></a>oc的库，采用frameworks集成，无需OC-Swift的桥接文件</h1>use_frameworks!</li>
-<li><p>添加依赖,指定第三方库名称＋[版本]</p>
-<h1 id="如无target则默认’Pods’"><a href="#如无target则默认’Pods’" class="headerlink" title="如无target则默认’Pods’"></a>如无target则默认’Pods’</h1><p>target ‘App’ do</p>
-<p> pod ‘Artsy+UIColors’<br> pod ‘Artsy+UIButtons’</p>
-<p> pod ‘FLKAutoLayout’<br> pod ‘ISO8601DateFormatter’, ‘0.7’<br> pod ‘AFNetworking’, ‘~&gt; 2.0’</p>
-<p> target ‘AppTests’ do</p>
-<pre><code>inherit! :search_paths
-pod &apos;FBSnapshotTestCase&apos;
-pod &apos;Quick&apos;
-pod &apos;Nimble&apos;
-</code></pre><p>  end<br>end<br>target ‘CocoaPods’ do<br>  pod ‘Alamofire’, ‘~&gt; 1.3’<br>  pod ‘Nimble’<br>end</p>
-</li>
-<li>下载安装第三方依赖，配置文件所在目录执行: pod install</li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-gradle深入理解笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/21/gradle深入理解笔记/" class="article-date">
-  	<time datetime="2016-05-21T09:14:52.000Z" itemprop="datePublished">2016-05-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/21/gradle深入理解笔记/">gradle深入理解笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="gradle深入理解笔记"><a href="#gradle深入理解笔记" class="headerlink" title="gradle深入理解笔记"></a>gradle深入理解笔记</h1><h3 id="Gradle-工程配置说明："><a href="#Gradle-工程配置说明：" class="headerlink" title="Gradle 工程配置说明："></a>Gradle 工程配置说明：</h3><ol>
-<li>每个 Project 都须设置一个 build.gradle 文件。 multi-projects build，需在根目录下放一个 build.gradle 和 settings.gradle。 </li>
-<li>一个 Project 是由若干 tasks 来组成的，可通过gradle xxx 来执行具体任务</li>
-<li>具体工作和不同的插件有关系。插件定义很多相关工作的task。</li>
-</ol>
-<h3 id="Gradle-工作三个阶段："><a href="#Gradle-工作三个阶段：" class="headerlink" title="Gradle 工作三个阶段："></a>Gradle 工作三个阶段：</h3><ol>
-<li>初始化阶段。multi-project build 是执行 settings.gradle。</li>
-<li>配置阶段。Configration 阶段的目标是解析每个 project 中的 build.gradle，确定整个build的project以及内部task的依赖关系。在这两个阶段之间，可通过api来加一些定制化的 Hook。  </li>
-<li>执行任务。根据task依赖关系，依次执行任务，其后还添加 Hook。</li>
-</ol>
-<h3 id="Gradle-编程模型及重要文档："><a href="#Gradle-编程模型及重要文档：" class="headerlink" title="Gradle 编程模型及重要文档："></a>Gradle 编程模型及<a href="https://docs.gradle.org/current/dsl/" target="_blank" rel="external">重要文档</a>：</h3><ol>
-<li>Gradle 对象：执行任务时 gradle 会从默认的配置脚本中构造出一个 Gradle 对象。在整个执行过程中，只有这么一个对象。</li>
-<li>Project 对象：每一个 build.gradle 会转换成一个 Project，可直接使用其属性。 对象。<a href="https://docs.gradle.org/current/dsl/org.gradle.api.Project.html" target="_blank" rel="external">查看属性函数</a></li>
-<li>Settings 对象：显然，每一个 settings.gradle 都会转换成一个 Settings 对象。</li>
-<li>可直接在build.gradle中直接使用gradle、project、settings对象。</li>
-</ol>
-<p>Project 对象对应的是 Build Script。具体工作：</p>
-<ol>
-<li>加载插件。Project 包含若干 Tasks。对应具体的工程，为其加载所需要的插件。通过 apply 函数，不同参数名来调用，apply from: ‘插件名’，apply from: ‘gradle文件路径名’</li>
-<li>不同插件有不同的配置。需要在 Project 中配置好，插件就知道从哪里读取源文件等。</li>
-<li>设置属性。多个 gradle 文件中共用参数，可通过全局唯一gradle对象 设置 ext 属性来实现。Gradle 的 extra property 设置需在第一次定义该属性的时候需要通过 ext 前缀来标示它是一个额外的属性。Project 和 Gradle 对象都可以设置 ext 属性。</li>
-</ol>
-<p>例子：  </p>
-<pre><code>[settings.gradle]
-def initMinshengGradleEnvironment(){
-    //属性值从 local.properites 中读取  
-    Properties properties = new Properties()
-    File propertyFile = new File(rootDir.getAbsolutePath() + &quot;/local.properties&quot;)
-    properties.load(propertyFile.newDataInputStream())
-    //gradle 就是 Gradle 对象。它默认是 Settings 和 Project 的成员变量。
-    // 可直接获取 ext 前缀，表明操作的是外置属性。
-    // api 是一个新的属性名。
-    // 第一次定义或者设置它的时候需要 ext 前缀  
-    gradle.ext.api = properties.getProperty(&apos;sdk.api&apos;)
-    println gradle.api  //再次存取 api 的时候，就不需要 ext 前缀了  
-}
-
-[utils.gradle]
-// utils.gradle 中定义了一个获取 AndroidManifests.xml versionName 的函数  
-def  getVersionNameAdvanced(){
-   // 下面这行代码中的 project 是谁？ project 就是加载 utils.gradle 的 project。
-   def xmlFile = project.file(&quot;AndroidManifest.xml&quot;) 
-   def rootManifest = new XmlSlurper().parse(xmlFile)
-   return rootManifest[&apos;@android:versionName&apos;]   
-}
-// 现在，想把这个 API 输出到各个 Project。
-// 由于这个 utils.gradle 会被每一个 Project Apply，
-// 所以我可以把 getVersionNameAdvanced 定义成一个 closure，
-// 然后赋值到一个外部属性  
-// 下面的 ext 是谁的 ext？  是 Project 对应的 ext 。
-ext { //此段花括号中代码是闭包  
-    // 除了 ext.xxx=value 这种定义方法外，还可以使用 ext{}这种书写方法。
-    // ext{}不是 ext(Closure)对应的函数调用。但是 ext{}中的{}确实是闭包。  
-    getVersionNameAdvanced = this.&amp;getVersionNameAdvanced
-}
-</code></pre><h4 id="答疑："><a href="#答疑：" class="headerlink" title="答疑："></a>答疑：</h4><p>Project 和 utils.gradle 对于的 Script 的对象的关系是：<br>当一个 Project apply 一个 gradle 文件的时候，这个 gradle 文件会转换成一个 Script 对象。<br>Script 中有一个 delegate 对象，这个 delegate 默认是加载（即调用 apply）它的 Project 对象。在 apply 函数中，有一个 from 参数，还有一个 to 参数。通过 to 参数，你可以把 delegate 对象指定为别的东西。<br>当你在 Script 中操作一些不是 Script 自己定义的变量，或者函数时候，gradle 会到 Script 的 delegate 对象去找，看看有没有定义这些变量或函数。  </p>
-<p><a href="https://docs.gradle.org/current/dsl/org.gradle.api.Task.html" target="_blank" rel="external">Task</a> 介绍：<br>Task 是 Gradle 中的一种数据类型，代表一些要执行的工作。每个 Task 都需要和一个 Project 关联。</p>
-<pre><code>[build.gradle]
-//Task 是和 Project 关联的，所以，我们要利用 Project 的 task 函数来创建一个 Task
-task myTask  &lt;==myTask 是新建 Task 的名字  
-task myTask { configure closure }
-task myType &lt;&lt; { task action }  &lt;==注意，&lt;&lt;符号 是 doLast 的缩写  
-task myTask(type: SomeType)
-task myTask(type: SomeType) { configure closure }
-</code></pre><p>一个 Task 包含若干 Action。所以，Task 有 doFirst 和 doLast 两个函数，用于添加需要最先执行的 Action 和需要和需要最后执行的 Action。Action 就是一个闭包。<br>Task 创建的时候可以指定 Type，通过 type:名字表达。就是告诉 Gradle，这个新建的 Task 对象会从哪个基类 Task 派生。Copy 是 Gradle 中的一个类。task myTask(type:Copy)，创建的 Task 就是一个 Copy Task。<br>task myTask &lt;&lt; {xxx}，创建了一个 Task 对象，同时把 closure 做为一个 action 加到这个 Task 的 action 队列中，并且告诉它“最后才执行这个 closure”（注意，&lt;&lt;符号是 doLast 的代表）。</p>
-<p>例子</p>
-<pre><code>[utils.gradle]
-import groovy.util.XmlSlurper  //解析 XML 时候要引入这个 groovy 的 package
-// 拷贝文件函数，用于将最后的生成物拷贝到指定的目录  
-def copyFile(String srcFile,dstFile){}
-// 删除指定目录中的文件  
-def rmFile(String targetFile){}
-// clean 的时候清理  
-def cleanOutput(boolean bJar = true){}
-// copyOutput 内部会调用 copyFile 完成一次 build 的产出物拷贝  
-def copyOutput(boolean bJar = true){}
-def getVersionNameAdvanced(){
-   def xmlFile = project.file(&quot;AndroidManifest.xml&quot;)
-   def rootManifest = new XmlSlurper().parse(xmlFile)
-   return rootManifest[&apos;@android:versionName&apos;]   
-}
-// 对于 android library 编译，我会 disable 所有的 debug 编译任务  
-def disableDebugBuild(){
-  //project.tasks 包含了所有的 tasks，
-  // findAll 是寻找那些名字中带 debug 的 Task。
-  //返回值保存到 targetTasks 容器中  
-  def targetTasks = project.tasks.findAll{ task -&gt;
-      task.name.contains(&quot;Debug&quot;)
-  }
-  // 对满足条件的 task，设置它为 disable。如此这般，这个 Task 就不会被执行  
-  targetTasks.each {
-     println &quot;disable debug task  : ${it.name}&quot;
-     it.setEnabled false
-  }
-}
-// 将函数设置为 extra 属性中去
-// 加载 utils.gradle 的 Project 就能调用此文件中定义的函数
-ext{
-    copyFile = this.&amp;copyFile
-    rmFile = this.&amp;rmFile
-    cleanOutput = this.&amp;cleanOutput
-    copyOutput = this.&amp;copyOutput
-    getVersionNameAdvanced = this.&amp;getVersionNameAdvanced
-    disableDebugBuild = this.&amp;disableDebugBuild
-}
-
-[settings.gradle]
-/** 编译环境初始化函数  
- * 1  解析一个名为 local.properties 的文件，读取 Android SDK 和 NDK 的路径  
- * 2  获取最终产出物目录的路径。编译完的 apk 或者 jar 包将拷贝到这个最终产出物目录中  
- * 3 获取 Android SDK 指定编译的版本  
- **/
-def initMinshengGradleEnvironment(){
-    println &quot;initialize Minsheng Gradle Environment .....&quot;
-    Properties properties = new Properties()
-    File propertyFile = new File(rootDir.getAbsolutePath() + &quot;/local.properties&quot;)
-    properties.load(propertyFile.newDataInputStream())
-    /** 根据 Project、Gradle 生命周期，settings 对象的创建位于具体 Project 创建之前。
-      * Gradle 对象已经创建好了。
-      * local.properties 的信息读出来后，通过extra 属性的方式设置到 gradle 对象中
-      * 具体 Project 在执行时，直接从 gradle 对象中得到这些属性了！
-      **/
-    gradle.ext.api = properties.getProperty(&apos;sdk.api&apos;)
-    gradle.ext.sdkDir = properties.getProperty(&apos;sdk.dir&apos;)
-    gradle.ext.ndkDir = properties.getProperty(&apos;ndk.dir&apos;)
-    gradle.ext.localDir = properties.getProperty(&apos;local.dir&apos;)
-    gradle.ext.debugKeystore = properties.getProperty(&apos;debug.keystore&apos;)
-    gradle.ext.releaseKeystore = properties.getProperty(&apos;release.keystore&apos;)
-     ......
-    println &quot;initialize Minsheng Gradle Environment completes...&quot;
-}
-//初始化  
-initMinshengGradleEnvironment()
-//添加子 Project 信息  
-include &apos;CPosSystemSdk&apos; , &apos;CPosDeviceSdk&apos; , &apos;CPosSdkDemo&apos;,&apos;CPosDeviceServerApk&apos;, &apos;CPosSystemSdkWizarPosImpl&apos;
-
-// 敏感信息隐藏，可单独建立文件，不做版本控制
-[local.properties]
-local.dir=/home/innost/workspace/minsheng-flat-dir/
-sdk.dir=/home/innost/workspace/android-aosp-sdk/
-ndk.dir=/home/innost/workspace/android-aosp-ndk/
-
-debug.keystore=/home/innost/workspace/tools/mykeystore.jks
-sdk.api=android-19
-
-//clean 是一个 Task 的名字，是插件引入的。  
-//dependsOn 是一个函数
-//clean 任务依赖 cposCleanTask 任务。
-//gradle clean 执行 clean Task 时，cposCleanTask 也会执行  
-clean.dependsOn &apos;cposCleanTask&apos;
-task cposCleanTask() &lt;&lt; {
-    //cleanOutput 是 utils.gradle 中通过 extra 属性设置的 Closure
-    cleanOutput(true)
-}
-
-//tasks 代表一个 Projects 中的所有 Task，是一个容器。
-// getByName 表示找到指定名称的任务。
-tasks.getByName(&quot;assemble&quot;) {
-    it.doLast{
-        println &quot;$project.name: After assemble, jar libs are copied to local repository&quot;
-        copyOutput(true)
-     }
-}
-// 当 Project 创建完所有任务的有向图后，通过 afterEvaluate 函数设置一个回调 Closure。
-// 在这个回调 Closure 里， disable 了所有 Debug 的 Task
-project.afterEvaluate{
-    disableDebugBuild()
-}
-
-// 创建一个 Task，类型是 Exec，表明它会执行一个命令
-// tasks.withType(JavaCompile) 设置的依赖关系
-task buildNative(type: Exec, description: &apos;Compile JNI source via NDK&apos;) {
-        if( project.gradle.ndkDir == null )
-           println &quot;CANNOT Build NDK&quot;
-        else{
-            commandLine &quot;/${project.gradle.ndkDir}/ndk-build&quot;,
-                &apos;-C&apos;, file(&apos;jni&apos;).absolutePath,
-                &apos;-j&apos;, Runtime.runtime.availableProcessors(),
-                &apos;all&apos;, &apos;NDK_DEBUG=0&apos;
-        }
-  }
- tasks.withType(JavaCompile) {
-        compileTask -&gt; compileTask.dependsOn buildNative
-  }
-
-
-
-[build.gradle]
-apply plugin: &apos;com.android.application&apos;
-apply from: rootProject.getRootDir().getAbsolutePath() + &quot;/utils.gradle&quot;
-//buildscript 设置 android app 插件的位置
-buildscript {
-    repositories { jcenter() }
-    dependencies { classpath &apos;com.android.tools.build:gradle:1.2.3&apos; }
-}
-//android ScriptBlock
-android {
-    compileSdkVersion gradle.api
-    buildToolsVersion &quot;22.0.1&quot;
-   sourceSets{ //源码设置 SB
-        main{
-            manifest.srcFile &apos;AndroidManifest.xml&apos;
-            jni.srcDirs = []
-            jniLibs.srcDir &apos;libs&apos;
-            aidl.srcDirs=[&apos;src&apos;]
-            java.srcDirs=[&apos;src&apos;]
-            res.srcDirs=[&apos;res&apos;]
-            assets.srcDirs = [&apos;assets&apos;] //多了一个 assets 目录  
-
-        }
-    }
-    signingConfigs {//签名设置  
-        debug {  //debug 对应的 SB。注意  
-            if(project.gradle.debugKeystore != null){
-                storeFile file(&quot;file://${project.gradle.debugKeystore}&quot;)
-                storePassword &quot;android&quot;
-                keyAlias &quot;androiddebugkey&quot;
-                keyPassword &quot;android&quot;
-            }
-        }
-    }
-    /*
-    buildTypes ScriptBlock.
-    buildTypes 和上面的 signingConfigs，在 build.gradle 中通过{}配置它的时候，
-    背后所代表对象是 NamedDomainObjectContainer&lt;BuildType&gt; 和  
-    NamedDomainObjectContainer&lt;SigningConfig&gt;
-    NamedDomainObjectContainer&lt;BuildType/或者 SigningConfig&gt;是一种容器，  
-    容器的元素是 BuildType 或者 SigningConfig。
-    在 debug{}要填充 BuildType 或者 SigningConfig 所包的元素，
-    比如 storePassword 就是 SigningConfig 类的成员。
-    proguardFile 等是 BuildType 的成员。  
-    */
-    signingConfig{//这是一个 NamedDomainObjectContainer&lt;SigningConfig&gt;
-       test1{//新建一个名为 test1 的 SigningConfig 元素，然后添加到容器里  
-         //在这个花括号中设置 SigningConfig 的成员变量的值  
-       }
-      test2{//新建一个名为 test2 的 SigningConfig 元素，然后添加到容器里  
-         //在这个花括号中设置 SigningConfig 的成员变量的值  
-      }
-    }
-    //在 buildTypes 中，Android 默认为这几个 NamedDomainObjectContainer 添加了  
-    debug 和 release 对应的对象。
-    //如果我们再添加别的名字的东西，那么 gradle assemble 的时候  
-    //也会编译这个名字的 apk 出来。
-
-    buildTypes{
-        debug{ //修改 debug 的 signingConfig 为 signingConfig.debug 配置  
-            signingConfig signingConfigs.debug
-        }
-        demo{ //demo 版需要混淆
-            proguardFile &apos;proguard-project.txt&apos;
-            signingConfig signingConfigs.debug
-        }
-       //release 版没有设置，所以默认没有签名，没有混淆  
-    }
-   //来看如何动态生成 runtime_config 文件  
-   def runtime_config_file = &apos;assets/runtime_config&apos;
-   /*
-   我们在 gradle 解析完整个任务之后，找到对应的 Task，然后在里边添加一个 doFirst Action
-   这样能确保编译开始的时候，我们就把 runtime_config 文件准备好了。
-   注意，必须在 afterEvaluate 里边才能做，否则 gradle 没有建立完任务有向图，你是找不到什么 preDebugBuild 之类的任务的
-   */
-    project.afterEvaluate{
-      //找到 preDebugBuild 任务，然后添加一个 Action  
-      tasks.getByName(&quot;preDebugBuild&quot;){
-            it.doFirst{
-                println &quot;generate debug configuration for ${project.name}&quot;
-                def configFile = new File(runtime_config_file)
-                configFile.withOutputStream{os-&gt;
-                    os &lt;&lt; I am Debug\n&apos;  //往配置文件里写 I am Debug
-                 }
-            }
-        }
-       //找到 preReleaseBuild 任务  
-        tasks.getByName(&quot;preReleaseBuild&quot;){
-            it.doFirst{
-                println &quot;generate release configuration for ${project.name}&quot;
-                def configFile = new File(runtime_config_file)
-                configFile.withOutputStream{os-&gt;
-                    os &lt;&lt; I am release\n&apos;
-                }
-            }
-        }
-       //找到 preDemoBuild，此任务是在 buildType 里添加了一个 demo 的元素  
-      //所以 Android APP 插件自动为我们生成的  
-        tasks.getByName(&quot;preDemoBuild&quot;){
-            it.doFirst{
-                println &quot;generate offlinedemo configuration for ${project.name}&quot;
-                def configFile = new File(runtime_config_file)
-                configFile.withOutputStream{os-&gt;
-                    os &lt;&lt; I am Demo\n&apos;
-                }
-            }
-        }
-    }
-}
-</code></pre><p><a href="http://wiki.jikexueyuan.com/project/deep-android-gradle/" target="_blank" rel="external">参考一</a><br><a href="https://segmentfault.com/a/1190000004229002" target="_blank" rel="external">参考二</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gradle/">gradle</a></li></ul>
 	</div>
 
       

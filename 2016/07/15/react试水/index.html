@@ -4,24 +4,42 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>mac编译android源码 | kutec.cn-分享技术，分享成长</title>
+  <title>react试水 | kutec.cn-分享技术，分享成长</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
-# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
-# vim ~/.">
+  <meta name="description" content="安装npm
+npm install -g react-heatpack
+vim index.js
+ import React from ‘react’
+ export default React.createClass({   render: function() {
+return &amp;lt;div&amp;gt;Hello React!&amp;lt;/div&amp;gt;
+   } })
+
+heatpack ind">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mac编译android源码">
-<meta property="og:url" content="http://wangrenxing.github.io/2016/06/30/mac编译android源码/index.html">
+<meta property="og:title" content="react试水">
+<meta property="og:url" content="http://wangrenxing.github.io/2016/07/15/react试水/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
-<meta property="og:description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
-# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
-# vim ~/.">
-<meta property="og:updated_time" content="2016-07-01T08:12:23.000Z">
+<meta property="og:description" content="安装npm
+npm install -g react-heatpack
+vim index.js
+ import React from ‘react’
+ export default React.createClass({   render: function() {
+return &amp;lt;div&amp;gt;Hello React!&amp;lt;/div&amp;gt;
+   } })
+
+heatpack ind">
+<meta property="og:updated_time" content="2016-07-16T15:09:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mac编译android源码">
-<meta name="twitter:description" content="1. 创建大小写敏感的磁盘镜像# hdiutil create -type SPARSE -fs &amp;apos;Case-sensitive Journaled HFS+&amp;apos; -size 40g ~/android.dmg
-# hdiutil resize -size &amp;lt;new-size-you-want&amp;gt;g ~/android.dmg.sparseimage
-# vim ~/.">
+<meta name="twitter:title" content="react试水">
+<meta name="twitter:description" content="安装npm
+npm install -g react-heatpack
+vim index.js
+ import React from ‘react’
+ export default React.createClass({   render: function() {
+return &amp;lt;div&amp;gt;Hello React!&amp;lt;/div&amp;gt;
+   } })
+
+heatpack ind">
   
     <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
   
@@ -205,11 +223,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-mac编译android源码" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-react试水" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/06/30/mac编译android源码/" class="article-date">
-  	<time datetime="2016-06-30T12:05:39.000Z" itemprop="datePublished">2016-06-30</time>
+      <a href="/2016/07/15/react试水/" class="article-date">
+  	<time datetime="2016-07-15T12:29:16.000Z" itemprop="datePublished">2016-07-15</time>
 </a>
     </div>
   
@@ -222,7 +240,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      mac编译android源码
+      react试水
     </h1>
   
 
@@ -231,7 +249,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framwork/">framwork</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/web/">web</a></li></ul>
 	</div>
 
         
@@ -242,41 +260,98 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-创建大小写敏感的磁盘镜像"><a href="#1-创建大小写敏感的磁盘镜像" class="headerlink" title="1. 创建大小写敏感的磁盘镜像"></a>1. 创建大小写敏感的磁盘镜像</h3><pre><code># hdiutil create -type SPARSE -fs &apos;Case-sensitive Journaled HFS+&apos; -size 40g ~/android.dmg
-# hdiutil resize -size &lt;new-size-you-want&gt;g ~/android.dmg.sparseimage
-# vim ~/.bash_profile
-# 添加挂在磁盘与卸载磁盘的便捷函数
-    #mount the android file image
-    function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
-    #unmount the android file image
-    function umountAndroid() { hdiutil detach /Volumes/android; }
-# source ~/.bash_profile
-# mountAndroid
-# cd /Volumes/android/
-</code></pre><h3 id="2-下载aosp-清华镜像"><a href="#2-下载aosp-清华镜像" class="headerlink" title="2. 下载aosp,清华镜像"></a>2. 下载aosp,<a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="external">清华镜像</a></h3><h3 id="3-编译"><a href="#3-编译" class="headerlink" title="3. 编译"></a>3. 编译</h3><pre><code># source build/envsetup.sh  
-# make idegen &amp;&amp; development/tools/idegen/idegen.sh  
-# macSdk版本参考附录2，下载对应xcode
-# make idegen &amp;&amp; development/tools/idegen/idegen.sh 
-# 根目录下生成ide导入文件＊.ipr
-</code></pre><ol>
-<li><p>mac下多jdk版本，通过别称切换</p>
-<pre><code># vim ~/.bash_profile
-export JAVA_6_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
-export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0.jdk/Contents/Home
-export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
-export JAVA_HOME=$JAVA_7_HOME
+        <ol>
+<li>安装npm</li>
+<li>npm install -g react-heatpack</li>
+<li><p>vim index.js</p>
+<p> import React from ‘react’</p>
+<p> export default React.createClass({<br>   render: function() {</p>
+<pre><code>return &lt;div&gt;Hello React!&lt;/div&gt;
+</code></pre><p>   }<br> })</p>
+</li>
+<li>heatpack index.js</li>
+<li><p>浏览器打开localhost:3000  </p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>import React from &apos;react&apos;
+var Hello = React.createClass({
+        render: function() {
+                return &lt;span&gt; Hello &lt;/span&gt;
+        }
+})
 
-alias jdk8=&apos;export JAVA_HOME=$JAVA_8_HOME&apos;
-alias jdk7=&apos;export JAVA_HOME=$JAVA_7_HOME&apos;
-alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
+/* version 1*/
+/*
+var World = React.createClass({
+        render: function(){
+                return &lt;span&gt; World! &lt;/span&gt;
+        }
+})
 </code></pre></li>
 </ol>
-<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><ol>
-<li><a href="http://source.android.com/source/initializing.html" target="_blank" rel="external">官方文档</a></li>
-<li><a href="http://blog.csdn.net/goyoung/article/details/48682163" target="_blank" rel="external">android5.1.1编译</a></li>
-<li><a href="http://www.cnblogs.com/kissazi2/p/5244442.html" target="_blank" rel="external">中文文档</a></li>
-<li><a href="http://www.tuicool.com/articles/uUJjEb" target="_blank" rel="external">mac多jdk版本</a></li>
-<li><a href="http://blog.csdn.net/ritterliu/article/details/50857128" target="_blank" rel="external">as查看源码</a></li>
+<pre><code>export default React.createClass( {
+        render: function() {
+                return &lt;div&gt;&lt;Hello/&gt;&lt;World/&gt;&lt;/div&gt;
+        }
+})
+*/
+
+/* version 0 */
+/*
+export default React.createClass( {
+        render: function() {
+                return &lt;div&gt; Hello React! &lt;/div&gt;
+        }
+})
+*/
+
+/* version 3 */
+/*
+var World = React.createClass({
+        render: function(){
+                return &lt;span&gt;{this.props.who || &apos; react world!&apos;}!&lt;/span&gt;
+        }
+})
+
+var World_1 = React.createClass({
+        render: function(){
+                return &lt;span&gt;{this.props.who ? this.props.who : &apos; react world!&apos;}!&lt;/span&gt;
+        }
+})
+
+var World_2 = React.createClass({
+        getPerson: function(){
+                return this.props.who || &apos; react world!&apos;;
+        },
+        render: function(){
+                return &lt;span&gt;{this.getPerson()}!&lt;/span&gt;
+        }
+})
+
+export default React.createClass({
+        render: function(){
+                return &lt;div&gt;&lt;Hello/&gt;&lt;World_2 who=&quot;wrx&quot;/&gt;&lt;/div&gt;
+        }
+})
+*/
+
+var Good = React.createClass({
+        propTypes: {
+                name: React.PropTypes.string.isRequired,
+                age: React.PropTypes.number, // optional
+                //parent: React.PropTypes.object.isRequired
+        },
+        render: function(){
+                return &lt;span&gt;{this.props.name}! {this.props.age}!&lt;/span&gt;
+        }
+})
+
+export default React.createClass({
+        render: function(){
+                return &lt;div&gt;&lt;Good name=&apos;wrx&apos; age={28}/&gt;&lt;/div&gt;
+        }
+})
+</code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="https://daveceddia.com/test-drive-react/" target="_blank" rel="external">test-drive-react</a></li>
+<li><a href="http://geek.csdn.net/news/detail/88222" target="_blank" rel="external">http://geek.csdn.net/news/detail/88222</a></li>
 </ol>
 
       
@@ -287,18 +362,18 @@ alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
     
 <nav id="article-nav">
   
-    <a href="/2016/07/12/React-native环境搭建/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/16/react入门笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          React native环境搭建
+          react入门笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/06/29/mac常用命令/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">mac常用命令</div>
+    <a href="/2016/07/14/Gradle-build加速/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gradle build加速</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -333,7 +408,7 @@ alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="mac编译android源码" data-title="mac编译android源码" data-url="http://wangrenxing.github.io/2016/06/30/mac编译android源码/"></div>
+	<div class="ds-thread" data-thread-key="react试水" data-title="react试水" data-url="http://wangrenxing.github.io/2016/07/15/react试水/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
