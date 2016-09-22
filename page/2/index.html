@@ -120,7 +120,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/SDL/" style="font-size: 10px;">SDL</a> <a href="/tags/android/" style="font-size: 17.5px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 12.5px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/react-native/" style="font-size: 12.5px;">react-native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/音视频/" style="font-size: 20px;">音视频</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
 					</div>
 				</section>
 				
@@ -199,6 +199,719 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-Gradle-build加速" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/14/Gradle-build加速/" class="article-date">
+  	<time datetime="2016-07-14T01:45:03.000Z" itemprop="datePublished">2016-07-14</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/14/Gradle-build加速/">Gradle build加速</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>开启offline work: /Users/wangrenxing/.gradle/</li>
+<li>use local gradle distribution:<br> 如果gradle版本缺失，可手动下载（网址查看wrapper里gradle-wrapper.properties）添加。解压放置到安装目录。<br> 或直接修改或拷贝<br>  cp -r ~/.gradle/wrapper/dists/gradle-2.12-all/8ywkdai6puj5z81fume4e7njw/gradle-2.12 /Applications/Android\ Studio.app/Contents/gradle/</li>
+<li><p>设置gradle.properties，添加如下</p>
+<p> org.gradle.jvmargs=-Xmx2048M -XX:MaxPermSize=512m<br> org.gradle.parallel=true<br> org.gradle.daemon=true</p>
+</li>
+<li><p><a href="https://www.figotan.org/2016/04/01/gradle-on-android-best-practise/" target="_blank" rel="external">gradle最佳实践</a></p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Gradle-Build/">Gradle Build</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-React-native环境搭建" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/12/React-native环境搭建/" class="article-date">
+  	<time datetime="2016-07-12T14:49:59.000Z" itemprop="datePublished">2016-07-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/12/React-native环境搭建/">React native环境搭建</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="0、推荐直接看官方安装文档，参考1"><a href="#0、推荐直接看官方安装文档，参考1" class="headerlink" title="0、推荐直接看官方安装文档，参考1"></a>0、推荐直接看官方安装文档，参考1</h3><h3 id="一、安装ruby（mac自带略，检查-ruby-–version"><a href="#一、安装ruby（mac自带略，检查-ruby-–version" class="headerlink" title="一、安装ruby（mac自带略，检查 ruby –version)"></a>一、安装ruby（mac自带略，检查 ruby –version)</h3><h3 id="二、安装brew（安装文档"><a href="#二、安装brew（安装文档" class="headerlink" title="二、安装brew（安装文档)"></a>二、安装brew（<a href="https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Installation.md" target="_blank" rel="external">安装文档</a>)</h3><p>ruby -e “$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/master/install" target="_blank" rel="external">https://raw.githubusercontent.com/Homebrew/install/master/install</a>)”<br>或<br>ruby -e “$(curl -fsSL <a href="https://raw.github.com/Homebrew/homebrew/go/install" target="_blank" rel="external">https://raw.github.com/Homebrew/homebrew/go/install</a>)</p>
+<h3 id="三、安装nvm（-安装文档-https-github-com-creationix-nvm）"><a href="#三、安装nvm（-安装文档-https-github-com-creationix-nvm）" class="headerlink" title="三、安装nvm（[安装文档](https://github.com/creationix/nvm）"></a>三、安装nvm（[安装文档](<a href="https://github.com/creationix/nvm）" target="_blank" rel="external">https://github.com/creationix/nvm）</a></h3><p>curl -o- <a href="https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh" target="_blank" rel="external">https://raw.githubusercontent.com/creationix/nvm/v0.31.2/install.sh</a> | bash  </p>
+<p>vim ~/.bash_profile # 添加下列两行<br>export NVM_DIR=”/Users/wangrenxing/.nvm”<br>[ -s “$NVM_DIR/nvm.sh” ] &amp;&amp; . “$NVM_DIR/nvm.sh” # loads nvm<br>source ~/.bash_profile<br>nvm install node<br>npm install -g npm@2 # node 5.0推荐用npm2，版本号可随意升降<br>npm install -g react-native-cli ＃ 安装react－native<br>brew install flow<br><a href="atom.io">下载安装atom</a><br>cmd + ,打开面板，选择package，安装插件nuclide 和 atom－beauty</p>
+<p>react-native init AwesomeProject<br>cd AwesomeProject<br>react-native run-ios</p>
+<p>vi ~/.bash_profile<br>export ANDROID_HOME = /…/android/sdk<br>查看build－tools里面的android编译工具版本，调整build.gralde的buildToolsVersion<br>开启adb调试，链接手机<br>react-native run-android<br>5.0＋手机：adb reverse tcp:8081 tcp:8081<br>5.0以下手机（手机与pc同一wifi环境）：</p>
+<ol>
+<li>adb shell input keyevent 82 或 按菜单键</li>
+<li>弹出界面点击 Dev Settings －&gt; Debug Server host &amp; port for Device</li>
+<li>输入pc的ip、port，192.168.1.116:8081</li>
+<li>返回开发者菜单 reload js</li>
+<li>查看端口 netstat -an – p | grep ‘tcp’ | grep ‘LISTEN’, 采用tcp46的*.8081。react-native start或npm start时会提示监听哪个端口。</li>
+<li><a href="https://facebook.github.io/react/blog/2015/09/02/new-react-developer-tools.html" target="_blank" rel="external">调试ractjs的插件</a>，开发人员选项里面有个react的tab</li>
+<li><a href="http://facebook.github.io/react-native/releases/0.29/docs/signed-apk-android.html#generating-signed-apk" target="_blank" rel="external">签名打包</a></li>
+</ol>
+<h3 id="四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk"><a href="#四、as在RNHello目录下创建android工程-建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk" class="headerlink" title="四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk)"></a>四、as在RNHello目录下创建android工程(建议用命令创建工程，以下方法易出错；注意此方法打包需要将js打包到asserts目录，再签名打包apk)</h3><pre><code>react-native bundle --platform android --dev false --entry-file index.android.js \
+  --bundle-output android/app/src/main/assets/index.android.bundle \
+  --assets-dest android/app/src/main/res/
+</code></pre><ol>
+<li>新建as工程，添加react-native依赖：compile ‘com.facebook.react:react-native:＋’</li>
+<li><p>添加网络权限并添加设置界面声明</p>
+<pre><code>&lt;activity android:name=&quot;com.facebook.react.devsupport.DevSettingsActivity&quot; /&gt;
+</code></pre></li>
+<li><p>修改代码</p>
+<pre><code> // MainActivity.java
+ public class MainActivity extends ReactActivity {
+    @Override
+    protected String getMainComponentName() {
+        return &quot;RNHello&quot;;
+    }
+    @Override
+    protected boolean getUseDeveloperSupport() {
+        return BuildConfig.DEBUG;
+    }
+}
+
+// 添加app.java，修改manifest.xml
+public class App extends Application implements ReactApplication{
+
+    private final ReactNativeHost reactNativeHost = new ReactNativeHost(this) {
+        @Override
+        protected boolean getUseDeveloperSupport() {
+            return BuildConfig.DEBUG;
+        }
+
+        @Override
+        protected List&lt;ReactPackage&gt; getPackages() {
+            return Arrays.&lt;ReactPackage&gt;asList(new MainReactPackage());
+        }
+    };
+
+    @Override
+    public ReactNativeHost getReactNativeHost() {
+        return reactNativeHost;
+    }
+}
+</code></pre></li>
+<li>RNHello目录添加js，执行npm init创建npm管理配置文件package.json，其中name必须统一，这里为RNHello，其它默认即可。</li>
+<li><p>修改配置，vi package.json<br> a. scripts内添加：  </p>
+<pre><code>&quot;start&quot;: &quot;node node_modules/react-native/local-cli/cli.js start&quot;
+</code></pre><p> b. 添加依赖(可参照react-native init Hello创建的package.json)：</p>
+<pre><code>&quot;dependencies&quot; : {
+    &quot;react&quot;: &quot;15.2.1&quot;,
+    &quot;react-native&quot;: &quot;0.29.0&quot;
+  }
+</code></pre></li>
+<li>安装依赖：npm install</li>
+<li><p>flow配置</p>
+<pre><code>curl -o .flowconfig  https://raw.githubusercontent.com/facebook/react-native/master/.flowconfig
+</code></pre></li>
+<li><p>react-native依赖下载位置修改，不然会出现版本不一致，出错：</p>
+<pre><code>// 先下载到本地
+// 配置package.json，执行npm install
+// 添加本地依赖库, app目录下的build.gradle
+allprojects {
+    repositories {
+        jcenter()
+        maven {
+            // 此路径文件在npm安装react依赖后有
+            url &quot;../../node_modules/react-native/android&quot;
+         }
+    }
+}
+</code></pre></li>
+<li>gradle加速，请移步本站对应文章，主要离线＋gradle守护进程＋并行</li>
+<li><p>RNHello目录编写index.android.js</p>
+<pre><code>import React, { Component } from &apos;react&apos;;
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View
+} from &apos;react-native&apos;;
+
+class RNHelloApp extends Component {
+  render() {
+    return (
+      &lt;View style={styles.container}&gt;
+        &lt;Text style={styles.welcome}&gt;
+          Welcome to React Native!
+        &lt;/Text&gt;
+        &lt;Text style={styles.instructions}&gt;
+          To get started, edit index.android.js
+        &lt;/Text&gt;
+        &lt;Text style={styles.instructions}&gt;
+          Shake or press menu button for dev menu
+        &lt;/Text&gt;
+      &lt;/View&gt;
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: &apos;center&apos;,
+    alignItems: &apos;center&apos;,
+    backgroundColor: &apos;#F5FCFF&apos;,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: &apos;center&apos;,
+    margin: 10,
+  },
+  instructions: {
+    textAlign: &apos;center&apos;,
+    color: &apos;#333333&apos;,
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent(&apos;RNHello&apos;, () =&gt; RNHelloApp);
+</code></pre></li>
+<li>编译</li>
+<li>//react-native start 或 npm start</li>
+<li>RNHello目录执行：react-native run-android</li>
+<li>调试方式见上</li>
+</ol>
+<h3 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h3><ol>
+<li>fatal: could not create leading directories of ‘/usr/local/Library/Taps/homebrew/homebrew-core’: Permission denied<br> 解决方法：<br> cd /usr/local<br> sudo chown -R <code>whoami</code> /usr/local<br> brew doctor</li>
+<li><p>找不到so，解决方法</p>
+<pre><code>ndk {
+    abiFilters &quot;armeabi-v7a&quot;, &quot;x86&quot;
+}
+</code></pre></li>
+</ol>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ol>
+<li><a href="http://reactnative.cn/docs/0.28/getting-started.html" target="_blank" rel="external">react native中文官网</a></li>
+<li><a href="http://www.lcode.org/%E3%80%90react-native%E5%BC%80%E5%8F%91%E3%80%91react-native-for-android%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B/" target="_blank" rel="external">www.lcode.org</a></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react native</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发环境搭建/">开发环境搭建</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mac编译android源码" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/30/mac编译android源码/" class="article-date">
+  	<time datetime="2016-06-30T12:05:39.000Z" itemprop="datePublished">2016-06-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/30/mac编译android源码/">mac编译android源码</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-创建大小写敏感的磁盘镜像"><a href="#1-创建大小写敏感的磁盘镜像" class="headerlink" title="1. 创建大小写敏感的磁盘镜像"></a>1. 创建大小写敏感的磁盘镜像</h3><pre><code># hdiutil create -type SPARSE -fs &apos;Case-sensitive Journaled HFS+&apos; -size 40g ~/android.dmg
+# hdiutil resize -size &lt;new-size-you-want&gt;g ~/android.dmg.sparseimage
+# vim ~/.bash_profile
+# 添加挂在磁盘与卸载磁盘的便捷函数
+    #mount the android file image
+    function mountAndroid { hdiutil attach ~/android.dmg.sparseimage -mountpoint /Volumes/android; }
+    #unmount the android file image
+    function umountAndroid() { hdiutil detach /Volumes/android; }
+# source ~/.bash_profile
+# mountAndroid
+# cd /Volumes/android/
+</code></pre><h3 id="2-下载aosp-清华镜像"><a href="#2-下载aosp-清华镜像" class="headerlink" title="2. 下载aosp,清华镜像"></a>2. 下载aosp,<a href="https://mirrors.tuna.tsinghua.edu.cn/help/AOSP/" target="_blank" rel="external">清华镜像</a></h3><h3 id="3-编译"><a href="#3-编译" class="headerlink" title="3. 编译"></a>3. 编译</h3><pre><code># source build/envsetup.sh  
+# make idegen &amp;&amp; development/tools/idegen/idegen.sh  
+# macSdk版本参考附录2，下载对应xcode
+# make idegen &amp;&amp; development/tools/idegen/idegen.sh 
+# 根目录下生成ide导入文件＊.ipr
+</code></pre><ol>
+<li><p>mac下多jdk版本，通过别称切换</p>
+<pre><code># vim ~/.bash_profile
+export JAVA_6_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0.jdk/Contents/Home
+export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
+export JAVA_HOME=$JAVA_7_HOME
+
+alias jdk8=&apos;export JAVA_HOME=$JAVA_8_HOME&apos;
+alias jdk7=&apos;export JAVA_HOME=$JAVA_7_HOME&apos;
+alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;
+</code></pre></li>
+</ol>
+<h3 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h3><ol>
+<li><a href="http://source.android.com/source/initializing.html" target="_blank" rel="external">官方文档</a></li>
+<li><a href="http://blog.csdn.net/goyoung/article/details/48682163" target="_blank" rel="external">android5.1.1编译</a></li>
+<li><a href="http://www.cnblogs.com/kissazi2/p/5244442.html" target="_blank" rel="external">中文文档</a></li>
+<li><a href="http://www.tuicool.com/articles/uUJjEb" target="_blank" rel="external">mac多jdk版本</a></li>
+<li><a href="http://blog.csdn.net/ritterliu/article/details/50857128" target="_blank" rel="external">as查看源码</a></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/framwork/">framwork</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-mac常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/29/mac常用命令/" class="article-date">
+  	<time datetime="2016-06-28T16:18:04.000Z" itemprop="datePublished">2016-06-29</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/29/mac常用命令/">mac常用命令</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>编辑16进制文件<ol>
+<li>vi -b 文件名</li>
+<li>:%!xxd #转化到16进制显示</li>
+<li>:%!xxd -r #转化回来</li>
+</ol>
+</li>
+<li></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Android打包签名基础" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/25/Android打包签名基础/" class="article-date">
+  	<time datetime="2016-06-25T03:14:57.000Z" itemprop="datePublished">2016-06-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/25/Android打包签名基础/">Android打包签名基础</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、apk签名机制"><a href="#一、apk签名机制" class="headerlink" title="一、apk签名机制"></a>一、apk签名机制</h3><ol>
+<li>android源码包中签名工具位置：/build/tools/signapk/SignApk.Java</li>
+<li><p>APK签名后仅多增一个包含三个签名信息文件的META-INF文件夹：MANIFEST.MF、CERT.SF、CERT.RSA</p>
+<ol>
+<li><p>MANIFEST.MF<br> 遍历unsigned.apk包中所有文件(entry)，对非文件夹非签名文件的文件，逐个生成SHA1的数字签名信息，再用Base64进行编码。如： </p>
+<p>Manifest-Version: 1.0<br>Created-By: 1.7.0_45 (Oracle Corporation)</p>
+<p>Name: r/i/kj.xml<br>SHA1-Digest: QhA56fuvl7WBZTIPo+dLoSxzZTU=</p>
+<p>Name: r/f/bj.xml<br>SHA1-Digest: 5sfiQit7o36jqjhWWdVd/xvVt+g=<br>…<br><strong>备注:</strong> 如apk中文件被修改，则在apk安装校验时，改变后的文件摘要信息与MANIFEST.MF的检验信息不同，于是程序就不能成功安装。</p>
+</li>
+<li><p>CERT.SF<br> 对Manifest.mf所有内容、单条目内容再次使用SHA1获取摘要信息保存。  </p>
+<p>Signature-Version: 1.0<br>SHA1-Digest-Manifest-Main-Attributes: sY6+RQ4DWdnxCfSpiwTT6GRIwA0=<br>Created-By: 1.7.0_45 (Oracle Corporation)<br>SHA1-Digest-Manifest: SjXvRPuF8h+6LjVQ7IhAgbAA26o=</p>
+<p>Name: r/i/kj.xml<br>SHA1-Digest: 7SMM22Px+FSBA3T5V81o+HYRArE=</p>
+<p>Name: r/f/bj.xml<br>SHA1-Digest: +RT+m7VROFNKLlbMpFxBKS5/PDI=</p>
+<p>Name: r/a3/enterprise_chat_entry_icon.svg<br>SHA1-Digest: 1qi3lmghywwh9G8afvy0Nvx4ACk=</p>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>3. CERT.RSA
+    CERT.RSA文件中保存了公钥、所采用的加密算法等信息。最后256字节保存了以私钥加密的CERT.SF的信息，仅能用提供的公钥解密。
+</code></pre><ol>
+<li>意义<ol>
+<li>Android签名机制是对APK包完整性和发布机构唯一性的一种校验机制。</li>
+<li>Android签名机制不能阻止APK包被修改，但修改后的再签名无法与原先的签名保持一致。（拥有私钥的情况除外）。</li>
+<li>APK包加密的公钥就打包在APK包内，且不同的私钥对应不同的公钥。可通过公钥是否相同来确定私钥是否相同。</li>
+</ol>
+</li>
+</ol>
+<h3 id="二、密钥和证书管理工具-keytool"><a href="#二、密钥和证书管理工具-keytool" class="headerlink" title="二、密钥和证书管理工具 keytool"></a>二、密钥和证书管理工具 keytool</h3><p>命令行下输入keytool，则打印如下：<br> -certreq            生成证书请求<br> -changealias        更改条目的别名<br> -delete             删除条目<br> -exportcert         导出证书<br> -genkeypair         生成密钥对<br> -genseckey          生成密钥<br> -gencert            根据证书请求生成证书<br> -importcert         导入证书或证书链<br> -importpass         导入口令<br> -importkeystore     从其他密钥库导入一个或所有条目<br> -keypasswd          更改条目的密钥口令<br> -list               列出密钥库中的条目<br> -printcert          打印证书内容<br> -printcertreq       打印证书请求的内容<br> -printcrl           打印 CRL 文件的内容<br> -storepasswd        更改密钥库的存储口令</p>
+<p>使用 “keytool -command_name -help” 获取 command_name 的用法  </p>
+<p>生成证书，keytool -genkey -help：<br> -alias <alias>                  要处理的条目的别名<br> -keyalg <keyalg>                密钥算法名称<br> -keysize <keysize>              密钥位大小<br> -sigalg <sigalg>                签名算法名称<br> -destalias <destalias>          目标别名<br> -dname <dname>                  唯一判别名<br> -startdate <startdate>          证书有效期开始日期/时间<br> -ext <value>                    X.509 扩展<br> -validity <valdays>             有效天数<br> -keypass <arg>                  密钥口令<br> -keystore <keystore>            密钥库名称<br> -storepass <arg>                密钥库口令<br> -storetype <storetype>          密钥库类型<br> -providername <providername>    提供方名称<br> -providerclass <providerclass>  提供方类名<br> -providerarg <arg>              提供方参数<br> -providerpath <pathlist>        提供方类路径<br> -v                              详细输出<br> -protected                      通过受保护的机制的口令</pathlist></arg></providerclass></providername></storetype></arg></keystore></arg></valdays></value></startdate></dname></destalias></sigalg></keysize></keyalg></alias></p>
+<p>keytool -genkey -v -keystore Android.keystore -alias android.keystore -keyalg RSA -validity 20000</p>
+<h3 id="三、签名工具-jarsigner"><a href="#三、签名工具-jarsigner" class="headerlink" title="三、签名工具 jarsigner"></a>三、签名工具 jarsigner</h3><p>用法: jarsigner [选项] jar-file 别名<br>       jarsigner -verify [选项] jar-file [别名…]</p>
+<p>[-keystore <url>]           密钥库位置<br>[-storepass &lt;口令&gt;]         用于密钥库完整性的口令<br>[-storetype &lt;类型&gt;]         密钥库类型<br>[-keypass &lt;口令&gt;]           私有密钥的口令 (如果不同)<br>[-certchain &lt;文件&gt;]         替代证书链文件的名称<br>[-sigfile &lt;文件&gt;]           .SF/.DSA 文件的名称<br>[-signedjar &lt;文件&gt;]         已签名的 JAR 文件的名称<br>[-digestalg &lt;算法&gt;]        摘要算法的名称<br>[-sigalg &lt;算法&gt;]           签名算法的名称<br>[-verify]                   验证已签名的 JAR 文件<br>[-verbose[:suboptions]]     签名/验证时输出详细信息。<br>                         子选项可以是 all, grouped 或 summary<br>[-certs]                    输出详细信息和验证时显示证书<br>[-tsa <url>]                时间戳颁发机构的位置<br>[-tsacert &lt;别名&gt;]           时间戳颁发机构的公共密钥证书<br>[-tsapolicyid <oid>]        时间戳颁发机构的 TSAPolicyID<br>[-altsigner &lt;类&gt;]           替代的签名机制的类名<br>[-altsignerpath &lt;路径列表&gt;] 替代的签名机制的位置<br>[-internalsf]               在签名块内包含 .SF 文件<br>[-sectionsonly]             不计算整个清单的散列<br>[-protected]                密钥库具有受保护验证路径<br>[-providerName &lt;名称&gt;]      提供方名称<br>[-providerClass &lt;类&gt;        加密服务提供方的名称<br>[-providerArg &lt;参数&gt;]]… 主类文件和构造器参数<br>[-strict]                   将警告视为错误</oid></url></url></p>
+<p>jarsigner -sigalg MD5withRSA -digestalg SHA1 -keystore android.keystore -storepass password -signedjar signed.apk unsign.apk -keypass alias_password alias_name</p>
+<h3 id="四、附录"><a href="#四、附录" class="headerlink" title="四、附录"></a>四、附录</h3><ol>
+<li><a href="http://blog.csdn.net/jiangwei0910410003/article/details/50402000" target="_blank" rel="external">Android签名机制之—签名过程详解</a></li>
+<li><a href=""></a></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/anroid/">anroid</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/apktool/">apktool</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jarsigner/">jarsigner</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-Dex分包学习" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/24/Dex分包学习/" class="article-date">
+  	<time datetime="2016-06-24T12:00:05.000Z" itemprop="datePublished">2016-06-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/24/Dex分包学习/">Dex分包学习</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="要点纪录"><a href="#要点纪录" class="headerlink" title="要点纪录"></a>要点纪录</h2><h4 id="1-相关联的类不在同一个dex文件里面，会报错。"><a href="#1-相关联的类不在同一个dex文件里面，会报错。" class="headerlink" title="1. 相关联的类不在同一个dex文件里面，会报错。"></a>1. 相关联的类不在同一个dex文件里面，会报错。</h4><p><strong><em>解释</em></strong> ：如果引用类被打上CLASS_ISPREVERIFIED标志，则会进行dex的校验（引用类与被引用类是否为同一个dex）。当安装apk时，dex文件会被虚拟机（dexopt）优化为odex文件，当启动虚拟机时如果打开verify选项，且dvmVerifyClass校验类成功，则此类会被打上CLASS_ISPREVERIFIED标志。<br>验证过程：如果类的以下方法直接引用到的类（不递归搜索）都在同一个dex文件则被打上CLASS_ISPREVERIFIED标记。</p>
+<pre><code>1. static方法
+2. private方法
+3. 构造函数
+4. 虚函数
+</code></pre><p><strong><em>方案</em></strong>: </p>
+<ol>
+<li>所有类的构造方法里都注入一行引用AntilazyLoad类的语句，AntilazyLoad类打包成单独的hack.dex，这样当安装apk的时候，classes.dex内的类都会引用一个在不相同dex中的AntilazyLoad类，这样就防止了类被打上CLASS_ISPREVERIFIED的标志了，只要没被打上这个标志的类都可以进行打补丁操作。</li>
+<li>应用启动的时候加载进来.AntilazyLoad类所在的dex包必须被先加载进来,不然AntilazyLoad类会被标记为不存在，即使后续加载了hack.dex包，那么他也是不存在的。</li>
+<li>Application作为应用的入口不能插入这段代码。（因为载入hack.dex的代码是在Application中onCreate中执行的，如果在Application的构造函数里面插入了这段代码，那么就是在hack.dex加载之前就使用该类，该类一次找不到，会被永远的打上找不到的标志)<br><strong><em><a href="https://mp.weixin.qq.com/s?__biz=MzI1MTA1MzM2Nw==&amp;mid=400118620&amp;idx=1&amp;sn=b4fdd5055731290eef12ad0d17f39d4a&amp;scene=1&amp;srcid=1106Imu9ZgwybID13e7y2nEi#wechat_redirect" target="_blank" rel="external">摘要原文</a></em></strong></li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/－-dex-－-android/">－ dex － android</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ida问题纪录" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/22/ida问题纪录/" class="article-date">
+  	<time datetime="2016-06-22T13:24:56.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/22/ida问题纪录/">ida问题纪录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="ida调试so步骤"><a href="#ida调试so步骤" class="headerlink" title="ida调试so步骤"></a>ida调试so步骤</h3><h4 id="一、下载ida-pro6-8，安装android模拟器（需具备root权限"><a href="#一、下载ida-pro6-8，安装android模拟器（需具备root权限" class="headerlink" title="一、下载ida pro6.8，安装android模拟器（需具备root权限)"></a>一、下载ida pro6.8，安装android模拟器（需具备root权限)</h4><h4 id="二、将ida里面的dbgsrv文件夹下的android-server，push到模拟器-adb-push-android-server-data-local-tmp"><a href="#二、将ida里面的dbgsrv文件夹下的android-server，push到模拟器-adb-push-android-server-data-local-tmp" class="headerlink" title="二、将ida里面的dbgsrv文件夹下的android_server，push到模拟器:adb push android_server /data/local/tmp/"></a>二、将ida里面的dbgsrv文件夹下的android_server，push到模拟器:adb push android_server /data/local/tmp/</h4><h4 id="三、adb-shell-su-chmod-755-data-local-tmp-android-server"><a href="#三、adb-shell-su-chmod-755-data-local-tmp-android-server" class="headerlink" title="三、adb shell; su; chmod 755 /data/local/tmp/android_server"></a>三、adb shell; su; chmod 755 /data/local/tmp/android_server</h4><h4 id="四、adb-shell-data-local-tmp-android-server，监听23946端口（netstat查看），与IDA-pro通信"><a href="#四、adb-shell-data-local-tmp-android-server，监听23946端口（netstat查看），与IDA-pro通信" class="headerlink" title="四、adb shell /data/local/tmp/android_server，监听23946端口（netstat查看），与IDA pro通信"></a>四、adb shell /data/local/tmp/android_server，监听23946端口（netstat查看），与IDA pro通信</h4><h4 id="五、adb-forward-tcp-23946-tcp-23946，本地端口转发"><a href="#五、adb-forward-tcp-23946-tcp-23946，本地端口转发" class="headerlink" title="五、adb forward tcp:23946 tcp:23946，本地端口转发"></a>五、adb forward tcp:23946 tcp:23946，本地端口转发</h4><h4 id="六、adb-install-test-apk"><a href="#六、adb-install-test-apk" class="headerlink" title="六、adb install test.apk"></a>六、adb install test.apk</h4><h4 id="七、adb-shell-am-start-D-n-com-tecent-mm-MainActivity（调试模式启动）"><a href="#七、adb-shell-am-start-D-n-com-tecent-mm-MainActivity（调试模式启动）" class="headerlink" title="七、adb shell am start -D -n com.tecent.mm/.MainActivity（调试模式启动）"></a>七、adb shell am start -D -n com.tecent.mm/.MainActivity（调试模式启动）</h4><h4 id="八、附加进程，设立断点"><a href="#八、附加进程，设立断点" class="headerlink" title="八、附加进程，设立断点"></a>八、附加进程，设立断点</h4><h3 id="问题纪录"><a href="#问题纪录" class="headerlink" title="问题纪录"></a>问题纪录</h3><ol>
+<li>android emulator启动，su之后在／目录下执行mkdir test出现Read-only file system，需要重新以读写来挂载／目录：mount -o rw,remount /，但是x86镜像有异常，故用arm镜像，解决只读所需命令：mount -o rw,remount /system  </li>
+<li>错误： only position independent executables (PIE) are supported.<br> 解释：PIE这个安全机制从4.1引入，但是Android L之前的系统版本并不会去检验可执行文件是否基于PIE编译出的。因此不会报错。但是Android L已经开启验证，如果调用的可执行文件不是基于PIE方式编译的，则无法运行。<br> 解决办法：<br>LOCAL_CFLAGS += -pie -fPIE<br>LOCAL_LDFLAGS += -pie -fPIE</li>
+<li>ida6.5及以下的android_server在android5.0及以上运行会出现pie问题。建议用高版本的。</li>
+</ol>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ida/">ida</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/root/">root</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-一步步搭建ida-pro动态调试SO环境" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/06/22/一步步搭建ida-pro动态调试SO环境/" class="article-date">
+  	<time datetime="2016-06-22T09:56:06.000Z" itemprop="datePublished">2016-06-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/06/22/一步步搭建ida-pro动态调试SO环境/">一步步搭建ida pro动态调试SO环境(转载)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><ol>
+<li>背景：无任何android开发经验，2天时间搭建调试环境并调试成功。</li>
+<li>目的：调试某android平板中的某个app的so文件，并逆向出关键算法。</li>
+<li>工具：ida pro6.5 +adb+刷机精灵</li>
+</ol>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>第一步准备工具：android平板，数据线，弄过来platform-tools，里面包含用到的adb工具，ida6.5pro, ida6.7pro.<br>第二步从平板中取出app的so文件：由于调试时它用到许多系统lib,我直接把/system和/data全部pull到本地上，很多文件，后面会用到。<br>第三步:push ida6.7中的android_server文件到 平板的/data/local/tmp目录中，然后改执行权限，始终不成功，说权限不允许之类的，折腾了很久，上网查了才知道，先要root，网上下载了360root工具，不成功，又下载刷机精灵，成功了。然后可以改权限了。<br>第四步：执行android_server,老是说segment fault,用root权限也不行，怀疑android_server有问题，是不是ida是6.7的问题，然后换ida6.5的android_server推到平板中去，尽然成功了，原来版本太高的原因吗？<br>第四步：把要调试的so库拖到ida6.5中分析，这里要android_server要与ida版本配套一起才行，不能混搭，比如ida6.5的android_server只能与ida6.5一起用才行，不能与ida6.7一起用，否则会有错误，说是服务版本不匹配之类的。<br>第五步：另开一个cmd, 输入adb forward tcp:23946 tcp:23946<br>第五步：设置调试选项路径,这里一定要是平板中的真实路径，不过一开始路径不对，可以随便设，附加后，ida会提示错误提示，按提示的路径回过头去改正，另外一些系统库,如libc.so,linker说找不到，那之前pull出来的/system/lib下面文件就有用了，把路径map到这个目录下就行了。<br>第六步：设置好调试选项后，F9选择arm android的那个调试器就行了，再选附加进程，发现只有一个进程。为什么呢，为什么呢，上网查了下，原来运行android_server时一定要先su一下，即在root权限下运行才能看到平板中的进程。<br>第七步：root下运行android_server后，把上面的步骤再来一次，ida6.5附加时可以看到一堆进程，找到要调试的so所在的进程后，附加就断在libc.so的一个地方，后面的就是真正调试的就不用说了。  </p>
+<p><a href="http://bbs.pediy.com/showthread.php?t=203080" target="_blank" rel="external">原文地址看雪论坛@PEdiy.com</a> </p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ida/">ida</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/so/">so</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-cocoapods依赖管理" class="article article-type-post" itemscope itemprop="blogPost">
   
@@ -631,141 +1344,9 @@ android {
 
 
   
-    <article id="post-apk编译打包流程笔记" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/21/apk编译打包流程笔记/" class="article-date">
-  	<time datetime="2016-05-21T02:58:26.000Z" itemprop="datePublished">2016-05-21</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/21/apk编译打包流程笔记/">apk编译打包流程笔记</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>老大说要帮客户弄个解析apk包名的方法，无奈aapt命令在客户环境下无法使用，利用周末时间研究了下，顺带做个笔记。</p>
-<h4 id="一、思路"><a href="#一、思路" class="headerlink" title="一、思路"></a>一、思路</h4><p>APK（Android Package）是zip压缩的文件，可通过zip对其进行解压，里面包含assets、一或多个classes.dex文件（odex过的apk除外）、AndroidManifest.xml、resources.arsc以及其他一些文件。找到AndroidManifest.xml，直接打开发现乱码，因此解决乱码即能获取到我们想要的包名。</p>
-<p>AndroidManifest.xml为什么会乱码呢？原来在apk编译打包的过程中将其转为自己特有的二进制格式，apk构建流程图中的aapt工具干的好事，因此我们只要针对此格式进行解析，就能还原到文本格式的xml文件或直接找到指定位置取出包名。</p>
-<p>谷歌官方apk构建流程图<br>    <img src="assets/apk_build_p.png" alt="apk文件构建流程图"></p>
-<p>AndroidManifest.xml的二进制格式<br><img src="assets/AndroidManifest二进制格式.png" alt="AndroidManifest二进制格式"></p>
-<p>由AndroidManifest的二进制格式图可知，按顺序依次放置魔幻数字、文件大小、字符串池子、资源池子、xml内容，根据对应的偏移找到xml内容，找到package属性和其值在字符串中的索引，根据索引从字符串池子中获得字符串。</p>
-<h4 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h4><ol>
-<li><a href="http://blog.zhaiyifan.cn/2016/02/13/android-reverse-2/" target="_blank" rel="external">Android逆向分析(2) APK的打包与安装</a></li>
-<li><a href="http://blog.csdn.net/jiangwei0910410003/article/details/50568487" target="_blank" rel="external">Android逆向之旅—解析编译之后的AndroidManifest文件格式</a></li>
-<li><a href="https://github.com/rednaga/axmlprinter" target="_blank" rel="external">axmlprinter</a></li>
-</ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/05/08/hello-world/" class="article-date">
-  	<time datetime="2016-05-08T05:25:28.000Z" itemprop="datePublished">2016-05-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios/">ios</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
-	</div>
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
     </nav>
   
 </div>

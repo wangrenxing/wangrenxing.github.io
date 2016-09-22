@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wangrenxing.github.io/2016/07/12/React-native环境搭建/index.html">
 <meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
 <meta property="og:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
-<meta property="og:updated_time" content="2016-07-17T10:36:26.000Z">
+<meta property="og:updated_time" content="2016-07-18T04:31:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="React native环境搭建">
 <meta name="twitter:description" content="0、推荐直接看官方安装文档，参考1一、安装ruby（mac自带略，检查 ruby –version)二、安装brew（安装文档)ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”或ruby -e “$(curl -fsSL https://raw.github.com/H">
@@ -121,7 +121,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/android/" style="font-size: 20px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 15px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 15px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/SDL/" style="font-size: 10px;">SDL</a> <a href="/tags/android/" style="font-size: 17.5px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 12.5px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/react-native/" style="font-size: 12.5px;">react-native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/音视频/" style="font-size: 20px;">音视频</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
 					</div>
 				</section>
 				
@@ -307,7 +307,7 @@ public class App extends Application implements ReactApplication{
 </code></pre></li>
 <li><p>react-native依赖下载位置修改，不然会出现版本不一致，出错：</p>
 <pre><code>// 先下载到本地
-npm install react-native --save
+// 配置package.json，执行npm install
 // 添加本地依赖库, app目录下的build.gradle
 allprojects {
     repositories {

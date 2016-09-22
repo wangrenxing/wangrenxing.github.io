@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>YUV格式学习笔记 | kutec.cn-分享技术，分享成长</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、简介YUV：Y:明亮度/灰度值(Luminance/Luma)；U、V：色度(Chrominance/Chroma),描述影像色彩与饱和度
+YUV格式通常有两大类：打包（packed）格式和平面（planar）格式。packed: 将YUV分量存放在同一个数组中，每个点的Y分量独立保存，但连续几个点的U，V分量是保存在一起，这几个相邻像素组成一个宏像素（macro-pixel）。planar:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YUV格式学习笔记">
+<meta property="og:url" content="http://wangrenxing.github.io/2016/09/11/YUV格式学习笔记/index.html">
+<meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
+<meta property="og:description" content="一、简介YUV：Y:明亮度/灰度值(Luminance/Luma)；U、V：色度(Chrominance/Chroma),描述影像色彩与饱和度
+YUV格式通常有两大类：打包（packed）格式和平面（planar）格式。packed: 将YUV分量存放在同一个数组中，每个点的Y分量独立保存，但连续几个点的U，V分量是保存在一起，这几个相邻像素组成一个宏像素（macro-pixel）。planar:">
+<meta property="og:image" content="http://wangrenxing.github.io/assets/yuv.jpg">
+<meta property="og:image" content="http://wangrenxing.github.io/assets/yuv420_mem.jpg">
+<meta property="og:image" content="http://wangrenxing.github.io/assets/yuv420sp.png">
+<meta property="og:image" content="http://wangrenxing.github.io/assets/yuv420p.png">
+<meta property="og:updated_time" content="2016-09-12T16:27:35.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="YUV格式学习笔记">
+<meta name="twitter:description" content="一、简介YUV：Y:明亮度/灰度值(Luminance/Luma)；U、V：色度(Chrominance/Chroma),描述影像色彩与饱和度
+YUV格式通常有两大类：打包（packed）格式和平面（planar）格式。packed: 将YUV分量存放在同一个数组中，每个点的Y分量独立保存，但连续几个点的U，V分量是保存在一起，这几个相邻像素组成一个宏像素（macro-pixel）。planar:">
+<meta name="twitter:image" content="http://wangrenxing.github.io/assets/yuv.jpg">
+  
+    <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wangrenxing</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿意改变，什么时候开始都不晚！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/随笔/">随笔</a></li>
+				        
+							<li><a href="/bookmarks">书签</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wangrenxing" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/SDL/" style="font-size: 10px;">SDL</a> <a href="/tags/android/" style="font-size: 17.5px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 12.5px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/react-native/" style="font-size: 12.5px;">react-native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/音视频/" style="font-size: 20px;">音视频</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="#">虚位以待</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">码农界平凡且爱折腾的一枚童鞋，徘徊在 C/C++/Java 的世界，献身于移动端！</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wangrenxing</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/assets/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wangrenxing</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿意改变，什么时候开始都不晚！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li><a href="/bookmarks">书签</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wangrenxing" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-YUV格式学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/11/YUV格式学习笔记/" class="article-date">
+  	<time datetime="2016-09-11T14:33:40.000Z" itemprop="datePublished">2016-09-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      YUV格式学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音视频/">音视频</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h3><p><em>YUV：</em>Y:明亮度/灰度值(Luminance/Luma)；U、V：色度(Chrominance/Chroma),描述影像色彩与饱和度</p>
+<p>YUV格式通常有两大类：打包（packed）格式和平面（planar）格式。<br><em>packed:</em> 将YUV分量存放在同一个数组中，每个点的Y分量独立保存，但连续几个点的U，V分量是保存在一起，这几个相邻像素组成一个宏像素（macro-pixel）。<br><em>planar:</em> 使用三个数组分开存放YUV三个分量<br>rgb格式每个点的数据连续保存在一起。</p>
+<p>YUV根据采样不同而存储不同<br><em>注意：</em>黑点表示采样该像素点的Y分量，空心圈表示采用该像素的UV分量<br><img src="assets/yuv.jpg" alt="YUV"><br><em>解释：</em></p>
+<pre><code>1. YUV 4:4:4采样，每一个Y对应一组UV分量
+2. YUV 4:2:2采样，每两个Y对应一组UV分量
+3. YUV 4:2:0采样，每四个Y对应一组UV分量
+</code></pre><h3 id="三、YUV420P格式解析"><a href="#三、YUV420P格式解析" class="headerlink" title="三、YUV420P格式解析"></a>三、YUV420P格式解析</h3><ol>
+<li>YUV420格式是指每个像素都保留一个Y（亮度）分量，而在水平方向上，不是每行都取U和V分量，而是一行只取U分量，则其接着一行就只取V分量，以此重复(即4:2:0, 4:0:2, 4:2:0, 4:0:2 …….)，所以420不是指没有V，而是指一行采样只取U，另一行采样只取V。</li>
+<li>在取U和V时，每两个Y之间取一个U或V。但从4x4矩阵列来看，每4个矩阵点Y区域中，只有一个U和V，所以它们的比值是4:1。</li>
+<li>对于一个像素，RGB需要8 * 3 = 24位，即占3个字节；而YUV420P，8 + 8/4 + 8/4 = 12位，即占2个字节，其中8指Y分量，8/4指U和V分量。<h3 id="四、YUV420内存格式"><a href="#四、YUV420内存格式" class="headerlink" title="四、YUV420内存格式"></a>四、YUV420内存格式</h3>YUV420sp: YYYYYYYY… UV… UV…<br>YUV420p:  YYYYYYYY… UU… VV…<br><img src="assets/yuv420_mem.jpg" alt="YUV420内存格式"><br><img src="assets/yuv420sp.png" alt="YUV420SP内存格式"><br><img src="assets/yuv420p.png" alt="YUV420P内存格式"></li>
+</ol>
+<h3 id="五、知识点"><a href="#五、知识点" class="headerlink" title="五、知识点"></a>五、知识点</h3><p>PSNR是最基本的视频质量评价方法，计算受损图像与原始图像之间的差别，以此来评价受损图像的质量，一般20-50，越大越接近。公式自查。</p>
+<p>RGB -&gt; YUV:</p>
+<pre><code>Y= 0.299*R+0.587*G+0.114*B
+U=-0.147*R-0.289*G+0.463*B
+V= 0.615*R-0.515*G-0.100*B
+</code></pre><h3 id="五、代码实现"><a href="#五、代码实现" class="headerlink" title="五、代码实现"></a>五、代码实现</h3><p><a href="http://blog.csdn.net/leixiaohua1020/article/details/50534150" target="_blank" rel="external">参考雷神博客</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/13/PCM音频数据处理笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          PCM音频数据处理笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/09/11/音视频基础学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">音视频基础学习笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="YUV格式学习笔记" data-title="YUV格式学习笔记" data-url="http://wangrenxing.github.io/2016/09/11/YUV格式学习笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wangrenxing"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 wangrenxing
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

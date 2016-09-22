@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>音视频基础学习笔记 | kutec.cn-分享技术，分享成长</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="一、基本技术知识
+封装格式：将视频数据和音频数据打包成一个文件的规范。（如avi/rmvb/mp4/flv/mkv等各式文件采用不同的封装格式）
+音视频编码标准：H.264/MPEG2/VC-1等（不同封装格式支持的音视频编解码标准数量不同，如mkv多，rmvb少）
+媒体信息查看开源工具MediaInfo
+音视频技术：封装技术、视频压缩解码技术、音频压缩解码技术、流媒体协议技术
+在线视频播放步骤：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="音视频基础学习笔记">
+<meta property="og:url" content="http://wangrenxing.github.io/2016/09/11/音视频基础学习笔记/index.html">
+<meta property="og:site_name" content="kutec.cn-分享技术，分享成长">
+<meta property="og:description" content="一、基本技术知识
+封装格式：将视频数据和音频数据打包成一个文件的规范。（如avi/rmvb/mp4/flv/mkv等各式文件采用不同的封装格式）
+音视频编码标准：H.264/MPEG2/VC-1等（不同封装格式支持的音视频编解码标准数量不同，如mkv多，rmvb少）
+媒体信息查看开源工具MediaInfo
+音视频技术：封装技术、视频压缩解码技术、音频压缩解码技术、流媒体协议技术
+在线视频播放步骤：">
+<meta property="og:updated_time" content="2016-09-11T14:05:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="音视频基础学习笔记">
+<meta name="twitter:description" content="一、基本技术知识
+封装格式：将视频数据和音频数据打包成一个文件的规范。（如avi/rmvb/mp4/flv/mkv等各式文件采用不同的封装格式）
+音视频编码标准：H.264/MPEG2/VC-1等（不同封装格式支持的音视频编解码标准数量不同，如mkv多，rmvb少）
+媒体信息查看开源工具MediaInfo
+音视频技术：封装技术、视频压缩解码技术、音频压缩解码技术、流媒体协议技术
+在线视频播放步骤：">
+  
+    <link rel="alternative" href="/atom.xml" title="kutec.cn-分享技术，分享成长" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/assets/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">wangrenxing</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">愿意改变，什么时候开始都不晚！</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/tags/随笔/">随笔</a></li>
+				        
+							<li><a href="/bookmarks">书签</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/wangrenxing" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Gradle-Build/" style="font-size: 10px;">Gradle Build</a> <a href="/tags/SDL/" style="font-size: 10px;">SDL</a> <a href="/tags/android/" style="font-size: 17.5px;">android</a> <a href="/tags/anroid/" style="font-size: 10px;">anroid</a> <a href="/tags/apktool/" style="font-size: 10px;">apktool</a> <a href="/tags/cmd/" style="font-size: 10px;">cmd</a> <a href="/tags/framwork/" style="font-size: 10px;">framwork</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/ida/" style="font-size: 12.5px;">ida</a> <a href="/tags/ios/" style="font-size: 15px;">ios</a> <a href="/tags/jarsigner/" style="font-size: 10px;">jarsigner</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/react/" style="font-size: 12.5px;">react</a> <a href="/tags/react-native/" style="font-size: 10px;">react native</a> <a href="/tags/react-native/" style="font-size: 12.5px;">react-native</a> <a href="/tags/root/" style="font-size: 10px;">root</a> <a href="/tags/so/" style="font-size: 10px;">so</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/开发环境搭建/" style="font-size: 10px;">开发环境搭建</a> <a href="/tags/适配/" style="font-size: 10px;">适配</a> <a href="/tags/随笔/" style="font-size: 10px;">随笔</a> <a href="/tags/音视频/" style="font-size: 20px;">音视频</a> <a href="/tags/－-dex-－-android/" style="font-size: 10px;">－ dex － android</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="#">虚位以待</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">码农界平凡且爱折腾的一枚童鞋，徘徊在 C/C++/Java 的世界，献身于移动端！</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">wangrenxing</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/assets/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">wangrenxing</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">愿意改变，什么时候开始都不晚！</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/tags/随笔/">随笔</a></li>
+		        
+					<li><a href="/bookmarks">书签</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/wangrenxing" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-音视频基础学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/09/11/音视频基础学习笔记/" class="article-date">
+  	<time datetime="2016-09-11T09:07:28.000Z" itemprop="datePublished">2016-09-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      音视频基础学习笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/音视频/">音视频</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="一、基本技术知识"><a href="#一、基本技术知识" class="headerlink" title="一、基本技术知识"></a>一、基本技术知识</h3><ol>
+<li>封装格式：将视频数据和音频数据打包成一个文件的规范。（如avi/rmvb/mp4/flv/mkv等各式文件采用不同的封装格式）</li>
+<li>音视频编码标准：H.264/MPEG2/VC-1等（不同封装格式支持的音视频编解码标准数量不同，如mkv多，rmvb少）</li>
+<li>媒体信息查看开源工具<a href="https://sourceforge.net/projects/mediainfo/" target="_blank" rel="external">MediaInfo</a></li>
+<li>音视频技术：封装技术、视频压缩解码技术、音频压缩解码技术、流媒体协议技术</li>
+<li>在线视频播放步骤：解协议-&gt;解封装-&gt;解码音视频-&gt;音视频同步-&gt;音视频驱动（如：rtmp -&gt; flv -&gt; h.264编码的视频码流 + AAC编码的音频码流）<br> a. 解协议：流媒体协议数据(RTMP/HTTP/MMS等) -&gt; 封装格式数据<br> b. 解封装：封装格式数据 -&gt; 分离为音频流压缩编码数据＋视频流压缩编码数据<br> c. 解码：视频/音频压缩编码数据 -&gt; 非压缩的视频像素数据/音频采样数据<pre><code>视频解码：压缩编码的视频数据 -&gt; 非压缩的颜色数据(YUV420P/RGB等)
+</code></pre> d. 音视频同步：根据解封装获取到的参数信息，同步解码出来的音视频数据，将其送到西系统声卡与显卡</li>
+</ol>
+<h3 id="二、流媒体协议"><a href="#二、流媒体协议" class="headerlink" title="二、流媒体协议"></a>二、流媒体协议</h3><p>客户端与服务端之际通信遵循的规定。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">推出机构</th>
+<th style="text-align:center">传输层协议</th>
+<th style="text-align:center">客户端</th>
+<th style="text-align:center">目前使用领域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">RTSP+RTP</td>
+<td style="text-align:center">IETF</td>
+<td style="text-align:center">TCP+UDP</td>
+<td style="text-align:center">VLC,WMP</td>
+<td style="text-align:center">IPTV</td>
+</tr>
+<tr>
+<td style="text-align:center">RTMP</td>
+<td style="text-align:center">Adobe Inc.</td>
+<td style="text-align:center">TCP</td>
+<td style="text-align:center">Flash</td>
+<td style="text-align:center">互联网直播</td>
+</tr>
+<tr>
+<td style="text-align:center">RTMFP</td>
+<td style="text-align:center">Adobe Inc.</td>
+<td style="text-align:center">UDP</td>
+<td style="text-align:center">Flash</td>
+<td style="text-align:center">互联网直播</td>
+</tr>
+<tr>
+<td style="text-align:center">MMS</td>
+<td style="text-align:center">Microsoft Inc.</td>
+<td style="text-align:center">TCP/UDP</td>
+<td style="text-align:center">WMP</td>
+<td style="text-align:center">互联网直播+点播</td>
+</tr>
+<tr>
+<td style="text-align:center">HTTP</td>
+<td style="text-align:center">WWW+IETF</td>
+<td style="text-align:center">TCP</td>
+<td style="text-align:center">Flash</td>
+<td style="text-align:center">互联网点播</td>
+</tr>
+</tbody>
+</table>
+<h3 id="三、封装格式"><a href="#三、封装格式" class="headerlink" title="三、封装格式"></a>三、封装格式</h3><p>主要作用将音频码流与视频码流按照一定格式存储到一个文件中<br>|名称     |推出机构  | 流媒体  | 支持的视频编码 | 支持的音频编码 |  目前使用领域    |<br>|:——:|:——-:|:——-:|:———–:|:————:|:————-:|<br>|AVI     |Mic Inc. | 不支持   |几乎所有格式   |几乎所有格式    |BT下载影视      |<br>|MP4     |MPEG     |支持      |MPEG-2, MPEG-4, H.264, H.263等 | AAC, MPEG-1 Layers I, II, III, AC-3等 | 互联网视频网站 |<br>|TS      |MPEG    |支持       |MPEG-1, MPEG-2, MPEG-4, H.264 | MPEG-1 Layers I, II, III, AAC,     |IPTV，数字电视 |<br>|FLV     |Adobe Inc.| 支持    |Sorenson, VP6, H.264 | MP3, ADPCM, Linear PCM, AAC等 | 互联网视频网站 |<br>|MKV     |CoreCodec Inc.| 支持|几乎所有格式|几乎所有格式 |互联网视频网站 |<br>|RMVB    |Real Networks Inc. | 支持 |RealVideo 8, 9, 10 | AAC, Cook Codec, RealAudio Lossless | BT下载影视 |</p>
+<h3 id="四、视频编码"><a href="#四、视频编码" class="headerlink" title="四、视频编码"></a>四、视频编码</h3><p>视频编码的主要作用是将视频像素数据（RGB，YUV等）压缩成为视频码流，从而降低视频的数据量<br>|名称           |推出机构       |推出时间   |目前使用领域   |<br>|:————:|:————:|:——–:|:———–:|<br>|H.264         |MPEG/ITU-T    |2003      |各个领域      |<br>|MPEG4         |MPEG          |2001      |不温不火      |<br>|MPEG2         |MPEG          |1994      |数字电视      |<br>|HEVC(H.265)   |MPEG/ITU-T    |2013      |研发中(厉害哦) |<br>|VP9           |Google        |2013      |研发中        |<br>|VP8           |Google        |2008      |不普及        |<br>|VC-1          |Microsoft Inc.|2006      |微软平台      |</p>
+<p>H.264是编码标准，不适具体编码器。<a href="http://www.compression.ru/video/codec_comparison/h264_2012/" target="_blank" rel="external">MSU出品的编码器比较</a><br>学习H.264最标准的源代码，就是其官方标准JM。<br>很刁的开源编码器x264.</p>
+<h3 id="五、音频编码"><a href="#五、音频编码" class="headerlink" title="五、音频编码"></a>五、音频编码</h3><p>音频编码的主要作用是将音频采样数据（PCM等）压缩成为音频码流，从而降低音频的数据量。<br>|名称     |推出机构        |推出时间     |目前使用领域     |<br>|AAC     |MPEG           |1997        |各个领域（新）   |<br>|AC-3    |Dolby Inc.     |1992        |电影           |<br>|MP3     |MPEG           |1993        |各个领域（旧）   |<br>|WMA     |Microsoft Inc. |1999        |微软平台        |</p>
+<p>直播服务普遍采用了RTMP作为流媒体协议，FLV作为封装格式，H.264作为视频编码格式，AAC作为音频编码格式。<br>点播服务普遍采用了HTTP作为流媒体协议，H.264作为视频编码格式，AAC作为音频编码格式。</p>
+<h3 id="六、笔记摘自雷神博客"><a href="#六、笔记摘自雷神博客" class="headerlink" title="六、笔记摘自雷神博客"></a>六、笔记摘自<a href="http://blog.csdn.net/leixiaohua1020/article/details/18893769" target="_blank" rel="external">雷神博客</a></h3>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/09/11/YUV格式学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          YUV格式学习笔记
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/18/react-native-平台、兼容、适配笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">react-native 平台、兼容、适配笔记</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="音视频基础学习笔记" data-title="音视频基础学习笔记" data-url="http://wangrenxing.github.io/2016/09/11/音视频基础学习笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"wangrenxing"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 wangrenxing
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
